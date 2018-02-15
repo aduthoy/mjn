@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/*@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+
+
+*/
+
+
+/* .angular-cli.json*/
+@import '../node_modules/ag-grid/dist/styles/ag-grid.css';
+@import '../node_modules/ag-grid/dist/styles/ag-theme-fresh.css';
+
+
+.icon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  background-image: url("./images/meadjohnson.jpg");
+  width: 200px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.itweb-form {
+  background-color: #fff;
+  width: 90%;
+  border-top: solid .5rem #4054b2;
+  -webkit-border-radius: .3rem;
+  -moz-border-radius: .3rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0 0 .5rem #8A8C8C;
+  margin-top: .5rem;
+}
+
+.itweb-formtitle {
+  background-color: #b1b1b1;
+  border-bottom: solid 1px #fff;
+  /*padding-left: .5rem;
+  padding-top: .5rem;*/
+  margin-bottom: .5rem;
+  color: #fff;
+  -webkit-border-radius: .3rem;
+  -moz-border-radius: .3rem;
+  border-radius: .3rem;
+  text-shadow: 0 0 .2rem #093b65;
+}
+
+.itweb-inner-form {
+  margin-top: .5rem;
+  border-top: 3px solid #677685;
+}

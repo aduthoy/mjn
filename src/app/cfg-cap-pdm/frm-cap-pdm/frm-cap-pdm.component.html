@@ -1,0 +1,78 @@
+<mat-card class="itweb-inner-form">
+  <!--<label style="text-align: right">Estado <i class="material-icons">keyboard_arrow_right</i> Nuevo</label>-->
+  <mat-card-content>
+    <form>
+      <mat-form-field maxlength="30%">
+        <input matInput placeholder="Código PDM" [formControl]="idCursoValidator"
+               [errorStateMatcher]="matcher" required [(ngModel)]="idCurso" name="idcurso" maxlength="10">
+        <mat-error *ngIf="idCursoValidator.hasError('required')">
+          Campo <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="width: 60%">
+        <input matInput placeholder="Titulo del PDM" required [formControl]="nombreCursoValidator" [(ngModel)]="nombreCurso" name="nombrecurso">
+        <mat-error *ngIf="nombreCursoValidator.hasError('required')"> Campo <strong>requerido</strong></mat-error>
+        <mat-error *ngIf="nombreCursoValidator.hasError('maxlength')"> No pude tener mas de 50 caracteres</mat-error>
+      </mat-form-field>
+      <br>
+           <div class="mat-row">
+               <mat-form-field>
+                 <input matInput [matDatepicker]="picker" placeholder="Fecha Efectiva">
+                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                 <mat-datepicker #picker></mat-datepicker>
+               </mat-form-field>
+               <mat-form-field>
+                 <mat-select placeholder="Status - Sel. Uno">
+                   <mat-option *ngFor="let estado of status" [value] = "estado.idStatus">
+                     {{ estado.descStatus}}
+                   </mat-option>
+                 </mat-select>
+               </mat-form-field>
+               <mat-form-field style="width: 350px;">
+                 <input matInput placeholder="Dueño del Documento" aria-label="prop" [matAutocomplete]="auto" [formControl]="propietarioCtrl">
+                 <mat-autocomplete #auto="matAutocomplete">
+                   <mat-option *ngFor="let propdoc of propDoctos | async" [value]="propdoc.nombrePropietario">
+                     <span>{{ propdoc.nombrePropietario }}</span> |
+                   </mat-option>
+                 </mat-autocomplete>
+               </mat-form-field>
+               <mat-form-field> <!-- style="width: 350px;">-->
+                 <mat-select placeholder="Nombre del Proces">
+                   <mat-option *ngFor="let proceso of Procesos" [value] = "proceso.idProceso">
+                     {{ proceso.nombreProceso}}
+                   </mat-option>
+                 </mat-select>
+               </mat-form-field>
+           </div>
+      <br>
+          <div class="mat-row">
+            <mat-form-field> <!-- style="width: 350px;">-->
+              <mat-select placeholder="Area">
+                <mat-option *ngFor="let area of Areas" [value] = "area.idArea">
+                  {{ area.nombreArea}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field> <!-- style="width: 350px;">-->
+              <mat-select placeholder="Estatus">
+                <mat-option *ngFor="let estado of Estados" [value] = "estado.idEstado">
+                  {{ estado.nombreEstado}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field style="width: 350px">
+              <input matInput placeholder="URL del Procedimiento" [formControl]="urlprocValidator"
+                     [errorStateMatcher]="matcher" required [(ngModel)]="urlPDM" name="urlproc">
+              <mat-error *ngIf="urlprocValidator.hasError('required')">
+                Campo <strong>requerido</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+      <button mat-raised-button="" style="color: darkgreen;"><i class="material-icons">check</i>Aceptar</button>
+      <button mat-raised-button="" style="color: darkred;"><i class="material-icons">cancel</i>Cancelar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
