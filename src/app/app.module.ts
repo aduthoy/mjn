@@ -118,7 +118,8 @@ const appRouter: Routes = [
     AgGridModule.withComponents([RedComponentComponent]),
    // AgGridModule.withComponents([RedComponentComponent])
   ],
-  entryComponents: [GridComponent],
+  entryComponents: [GridComponent,
+  FrmCapPdmComponent],
   bootstrap: [AppComponent],
   providers: []
 

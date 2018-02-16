@@ -1,10 +1,12 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../../app.component';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operator/startWith';
 import {PdmPropietariosService} from '../../services/pdm-propietarios.service';
 import {map} from 'rxjs/operator/map';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {Catpdms} from '../../models/catpdms';
 
 
 @Component({
@@ -84,7 +86,8 @@ export class FrmCapPdmComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor() {
+  constructor( private matDialogRef: MatDialogRef<FrmCapPdmComponent>,
+               @Inject(MAT_DIALOG_DATA) public curso: Catpdms) {
     this.propietarioCtrl = new FormControl();
     /*this.filtroPropietarios = this.propietarioCtrl.valueChanges
     .pipe(
@@ -97,5 +100,10 @@ export class FrmCapPdmComponent implements OnInit {
     return this.propDoctos.filter(prop => prop.nombrePropietario.toLowerCase().indexOf(nombre.toLowerCase()) === 0);
   }
   ngOnInit() {
+  }
+
+  public onCancel() {
+    console.log('Alta PDM Canelada');
+    this.matDialogRef.close();
   }
 }

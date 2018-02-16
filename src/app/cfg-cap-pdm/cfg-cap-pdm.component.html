@@ -5,22 +5,22 @@
 
   <mat-toolbar>
     <mat-toolbar-row>
-      <div class="button-row">-
-        <button mat-button="">
+      <div class="button-row">
+        <button mat-button="" id="new" (click)="onClickNewButton()">
           <i class="material-icons">add_circle_outline</i>
           Nuevo
         </button>
-        <button mat-button="">
+        <button mat-button="" id="edit" (click)="onClickButton(2)">
           <i class="material-icons">edit</i>
           Editar
         </button>
-        <button mat-button="">
+        <button mat-button="" id="delete" (click)="onClickButton(3)">
           <i class="material-icons">delete</i>
           Borrar
         </button>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-  <!--<app-grid></app-grid>-->
-  <app-frm-cap-pdm></app-frm-cap-pdm>
+  <app-my-grid-application></app-my-grid-application>
+  <!--<app-frm-cap-pdm></app-frm-cap-pdm>-->
 </mat-card>

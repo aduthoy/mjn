@@ -12,7 +12,7 @@
 
 /* .angular-cli.json*/
 @import '../node_modules/ag-grid/dist/styles/ag-grid.css';
-@import '../node_modules/ag-grid/dist/styles/ag-theme-fresh.css';
+@import '../node_modules/ag-grid/dist/styles/ag-theme-material.css';
 
 
 .icon {
