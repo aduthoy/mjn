@@ -1,30 +1,102 @@
 {
 	"catpdms": [
-		{"codigoactual": "DEL-SC-SCG-SOP-01298.docx", "codigoanterior": "FAC-DEL-SOP-035", "titulo": "Funciones Seguridad", "fechaefectiva": "30/05/2017", "status": "Effective", "duenodoc": "Armendariz, Josecarlos", "proceso": "Procedimientos generales de planta", "area": "SEGURIDAD", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01300.docx", "codigoanterior": "FAC-DEL-SOP-036", "titulo": "Control de Acceso y CCTV", "fechaefectiva": "29/01/2014", "status": "Draft", "duenodoc": "Armendariz, Josecarlos", "proceso": "Procedimientos generales de planta", "area": "SEGURIDAD", "estatus":"REQUIERE COMPLETAR"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01302.docx", "codigoanterior": "FAC-DEL-SOP-037", "titulo": "Seguridad en el transporte", "fechaefectiva": "20/02/2017", "status": "Effective", "duenodoc": "Armendariz, Josecarlos", "proceso": "Procedimientos generales de planta", "area": "SEGURIDAD", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01307.docx", "codigoanterior": "FAC-DEL-SOP-038", "titulo": "Ingreso y Salida de Contratistas y Proveedores", "fechaefectiva": "27/10/2015", "status": "Effective", "duenodoc": "Armendariz, Josecarlos", "proceso": "Procedimientos generales de planta", "area": "SEGURIDAD", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-SCG-SOP-02486.docx", "codigoanterior": "", "titulo": "Administración de Llave/Candado", "fechaefectiva": "13/06/2016", "status": "Effective", "duenodoc": "Portillo, Jose", "proceso": "Procedimientos generales de planta", "area": "SEGURIDAD", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-SCG-SOP-02703.docx", "codigoanterior": "", "titulo": "Control de Acceso a empleados, visitas, proveedores y contratistas.", "fechaefectiva": "06/04/2017", "status": "Effective", "duenodoc": "Armendariz, Josecarlos", "proceso": "Procedimientos generales de planta", "area": "SEGURIDAD", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01272.docx", "codigoanterior": "FAC-DEL-SOP-004", "titulo": "Procedimiento de Contrataciones", "fechaefectiva": "07/05/2014", "status": "Effective", "duenodoc": "Leyva, Carolina", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01287.docx", "codigoanterior": "FAC-DEL-SOP-013", "titulo": "Procedimiento de Capacitación", "fechaefectiva": "13/06/2016", "status": "Draft", "duenodoc": "Quezada Miramontes, Leona Yazmin", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"REQUIERE COMPLETAR"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01289.docx", "codigoanterior": "FAC-DEL-SOP-015", "titulo": "Elaboración de Incidencias para Nómina", "fechaefectiva": "15/11/2015", "status": "Effective", "duenodoc": "Robles Leyva, Magda", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01291.docx", "codigoanterior": "FAC-DEL-SOP-016", "titulo": "Entrada y salida de empleados y visitantes", "fechaefectiva": "04/11/2013", "status": "Effective", "duenodoc": "Armendariz, Josecarlos", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01295.docx", "codigoanterior": "FAC-DEL-SOP-034", "titulo": "Directrices, Lineamientos para la Evaluación y Mon", "fechaefectiva": "14/10/2011", "status": "Effective", "duenodoc": "Varela, Jorge", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-SCG-SOP-01311.docx", "codigoanterior": "FAC-DEL-SOP-039", "titulo": "Directorio Telefonico", "fechaefectiva": "19/08/2013", "status": "Effective", "duenodoc": "Bejarano Nevarez, Monica Judith", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-SCG-WI-01377.docx", "codigoanterior": "FAC-DEL-WI-041-01", "titulo": "Sistema para el manejo de Expedientes", "fechaefectiva": "08/04/2014", "status": "Effective", "duenodoc": "Robles Leyva, Magda", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-SCG-POL-02428.docx", "codigoanterior": "", "titulo": "Política para el uso de vehículo utilitario en la planta Delicias", "fechaefectiva": "11/04/2016", "status": "Effective", "duenodoc": "Quezada Miramontes, Leona Yazmin", "proceso": "Procedimientos generales de planta", "area": "RH", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-QS-SOP-01591.docx", "codigoanterior": "QLT-DEL-SOP-002", "titulo": "Procedimiento para la Calificación de Equipos en M", "fechaefectiva": "11/08/2016", "status": "Effective", "duenodoc": "Dominguez Fregoso, Guadalupe", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-QS-SOP-01595.docx", "codigoanterior": "QLT-DEL-SOP-004", "titulo": "Procedimiento para Control de Cambios", "fechaefectiva": "31/05/2017", "status": "Effective", "duenodoc": "Marquez Guerrero, Elisa Maria", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-QS-SOP-01602.docx", "codigoanterior": "QLT-DEL-SOP-007", "titulo": "Función de confirmación de recepción de muestras en GLIMS", "fechaefectiva": "24/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01606.docx", "codigoanterior": "QLT-DEL-SOP-008", "titulo": "Material, clase de material y fabricante", "fechaefectiva": "24/09/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01623.docx", "codigoanterior": "QLT-DEL-SOP-010", "titulo": "Configuración de Sample Plan", "fechaefectiva": "23/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01626.docx", "codigoanterior": "QLT-DEL-SOP-011", "titulo": "Directrices para la recepción de muestras en GLIMS", "fechaefectiva": "23/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01629.docx", "codigoanterior": "QLT-DEL-SOP-012", "titulo": "Directrices para la dictaminación final de un trab", "fechaefectiva": "28/06/2016", "status": "Retired", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"ELIMINADO"},
-		{"codigoactual": "DEL-SC-QS-SOP-01632.docx", "codigoanterior": "QLT-DEL-SOP-0126", "titulo": "Procedimiento para la calificación de materias primas y administración de RMAQ", "fechaefectiva": "11/08/2017", "status": "Effective", "duenodoc": "Chavez Esquivel, Crisn Lariza", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VIGENTE"},
-		{"codigoactual": "DEL-SC-QS-SOP-01635.docx", "codigoanterior": "QLT-DEL-SOP-013", "titulo": "Directrices para pre- dictaminación de un trabajo", "fechaefectiva": "25/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01638.docx", "codigoanterior": "QLT-DEL-SOP-014", "titulo": "Guía para Re-dictaminación en LIMS", "fechaefectiva": "25/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01641.docx", "codigoanterior": "QLT-DEL-SOP-015", "titulo": "Directrices para mostrar la disposición de un trabajo en GLIMS", "fechaefectiva": "23/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"},
-		{"codigoactual": "DEL-SC-QS-SOP-01644.docx", "codigoanterior": "QLT-DEL-SOP-016", "titulo": "Directrices para Reimprimir el Reporte de Disposición ", "fechaefectiva": "24/06/2014", "status": "Effective", "duenodoc": "Estrada, Ana", "proceso": "Sistemas de calidad", "area": "QS", "estatus":"VENCIDO REVISAR"}
+		{"codigoactual": "DEL-SC-SCG-SOP-01298.docx", "codigoanterior": "FAC-DEL-SOP-035", "titulo": "Funciones Seguridad", "fechaefectiva": "30/05/2017", "status": 2, "duenodoc": "Armendariz, Josecarlos", "proceso": 1, "area": 1, "estatus": 1},
+		{"codigoactual": "DEL-SC-SCG-SOP-01300.docx", "codigoanterior": "FAC-DEL-SOP-036", "titulo": "Control de Acceso y CCTV", "fechaefectiva": "29/01/2014", "status": 1, "duenodoc": "Armendariz, Josecarlos", "proceso": 1, "area": 1, "estatus": 2},
+		{"codigoactual": "DEL-SC-SCG-SOP-01302.docx", "codigoanterior": "FAC-DEL-SOP-037", "titulo": "Seguridad en el transporte", "fechaefectiva": "20/02/2017", "status": 2, "duenodoc": "Armendariz, Josecarlos", "proceso": 1, "area": 1, "estatus": 1},
+		{"codigoactual": "DEL-SC-SCG-SOP-01307.docx", "codigoanterior": "FAC-DEL-SOP-038", "titulo": "Ingreso y Salida de Contratistas y Proveedores", "fechaefectiva": "27/10/2015", "status": 2, "duenodoc": "Armendariz, Josecarlos", "proceso": 1, "area": 1, "estatus": 1},
+		{"codigoactual": "DEL-SC-SCG-SOP-02486.docx", "codigoanterior": "", "titulo": "Administración de Llave/Candado", "fechaefectiva": "13/06/2016", "status": 2, "duenodoc": "Portillo, Jose", "proceso": 1, "area": 1, "estatus": 1},
+		{"codigoactual": "DEL-SC-SCG-SOP-02703.docx", "codigoanterior": "", "titulo": "Control de Acceso a empleados, visitas, proveedores y contratistas.", "fechaefectiva": "06/04/2017", "status": 2, "duenodoc": "Armendariz, Josecarlos", "proceso": 1, "area": 1, "estatus": 1},
+		{"codigoactual": "DEL-SC-SCG-SOP-01272.docx", "codigoanterior": "FAC-DEL-SOP-004", "titulo": "Procedimiento de Contrataciones", "fechaefectiva": "07/05/2014", "status": 2, "duenodoc": "Leyva, Carolina", "proceso": 1, "area": 2, "estatus": 3},
+		{"codigoactual": "DEL-SC-SCG-SOP-01287.docx", "codigoanterior": "FAC-DEL-SOP-013", "titulo": "Procedimiento de Capacitación", "fechaefectiva": "13/06/2016", "status": 1, "duenodoc": "Quezada Miramontes, Leona Yazmin", "proceso": 1, "area": 2, "estatus": 2},
+		{"codigoactual": "DEL-SC-SCG-SOP-01289.docx", "codigoanterior": "FAC-DEL-SOP-015", "titulo": "Elaboración de Incidencias para Nómina", "fechaefectiva": "15/11/2015", "status": 2, "duenodoc": "Robles Leyva, Magda", "proceso": 1, "area": 2, "estatus": 1},
+		{"codigoactual": "DEL-SC-SCG-SOP-01291.docx", "codigoanterior": "FAC-DEL-SOP-016", "titulo": "Entrada y salida de empleados y visitantes", "fechaefectiva": "04/11/2013", "status": 2, "duenodoc": "Armendariz, Josecarlos", "proceso": 1, "area": 2, "estatus": 3},
+		{"codigoactual": "DEL-SC-SCG-SOP-01295.docx", "codigoanterior": "FAC-DEL-SOP-034", "titulo": "Directrices, Lineamientos para la Evaluación y Mon", "fechaefectiva": "14/10/2011", "status": 2, "duenodoc": "Varela, Jorge", "proceso": 1, "area": 2, "estatus": 3},
+		{"codigoactual": "DEL-SC-SCG-SOP-01311.docx", "codigoanterior": "FAC-DEL-SOP-039", "titulo": "Directorio Telefonico", "fechaefectiva": "19/08/2013", "status": 2, "duenodoc": "Bejarano Nevarez, Monica Judith", "proceso": 1, "area": 2, "estatus": 3},
+		{"codigoactual": "DEL-SC-SCG-WI-01377.docx", "codigoanterior": "FAC-DEL-WI-041-01", "titulo": "Sistema para el manejo de Expedientes", "fechaefectiva": "08/04/2014", "status": 2, "duenodoc": "Robles Leyva, Magda", "proceso": 1, "area": 2, "estatus": 3},
+		{"codigoactual": "DEL-SC-SCG-POL-02428.docx", "codigoanterior": "", "titulo": "Política para el uso de vehículo utilitario en la planta Delicias", "fechaefectiva": "11/04/2016", "status": 2, "duenodoc": "Quezada Miramontes, Leona Yazmin", "proceso": 1, "area": 2, "estatus": 1},
+		{"codigoactual": "DEL-SC-QS-SOP-01591.docx", "codigoanterior": "QLT-DEL-SOP-002", "titulo": "Procedimiento para la Calificación de Equipos en M", "fechaefectiva": "11/08/2016", "status": 2, "duenodoc": "Dominguez Fregoso, Guadalupe", "proceso": 2, "area": 3, "estatus": 1},
+		{"codigoactual": "DEL-SC-QS-SOP-01595.docx", "codigoanterior": "QLT-DEL-SOP-004", "titulo": "Procedimiento para Control de Cambios", "fechaefectiva": "31/05/2017", "status": 2, "duenodoc": "Marquez Guerrero, Elisa Maria", "proceso": 2, "area": 3, "estatus": 1},
+		{"codigoactual": "DEL-SC-QS-SOP-01602.docx", "codigoanterior": "QLT-DEL-SOP-007", "titulo": "Función de confirmación de recepción de muestras en GLIMS", "fechaefectiva": "24/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01606.docx", "codigoanterior": "QLT-DEL-SOP-008", "titulo": "Material, clase de material y fabricante", "fechaefectiva": "24/09/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01623.docx", "codigoanterior": "QLT-DEL-SOP-010", "titulo": "Configuración de Sample Plan", "fechaefectiva": "23/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01626.docx", "codigoanterior": "QLT-DEL-SOP-011", "titulo": "Directrices para la recepción de muestras en GLIMS", "fechaefectiva": "23/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01629.docx", "codigoanterior": "QLT-DEL-SOP-012", "titulo": "Directrices para la dictaminación final de un trab", "fechaefectiva": "28/06/2016", "status": 3, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 4},
+		{"codigoactual": "DEL-SC-QS-SOP-01632.docx", "codigoanterior": "QLT-DEL-SOP-0126", "titulo": "Procedimiento para la calificación de materias primas y administración de RMAQ", "fechaefectiva": "11/08/2017", "status": 2, "duenodoc": "Chavez Esquivel, Crisn Lariza", "proceso": 2, "area": 3, "estatus": 1},
+		{"codigoactual": "DEL-SC-QS-SOP-01635.docx", "codigoanterior": "QLT-DEL-SOP-013", "titulo": "Directrices para pre- dictaminación de un trabajo", "fechaefectiva": "25/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01638.docx", "codigoanterior": "QLT-DEL-SOP-014", "titulo": "Guía para Re-dictaminación en LIMS", "fechaefectiva": "25/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01641.docx", "codigoanterior": "QLT-DEL-SOP-015", "titulo": "Directrices para mostrar la disposición de un trabajo en GLIMS", "fechaefectiva": "23/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3},
+		{"codigoactual": "DEL-SC-QS-SOP-01644.docx", "codigoanterior": "QLT-DEL-SOP-016", "titulo": "Directrices para Reimprimir el Reporte de Disposición ", "fechaefectiva": "24/06/2014", "status": 2, "duenodoc": "Estrada, Ana", "proceso": 2, "area": 3, "estatus": 3}
+	],
+
+	"catProps": [
+		{"idProps": 1, "nombreProps": "Armendariz, Josecarlos"},
+		{"idProps": 2, "nombreProps": "Portillo, Jose"},
+		{"idProps": 3, "nombreProps": "Leyva, Carolina"},
+		{"idProps": 4, "nombreProps": "Quezada Miramontes, Leona Yazmin"},
+		{"idProps": 5, "nombreProps": "Robles Leyva, Magda"},
+		{"idProps": 6, "nombreProps": "Varela, Jorge"},
+		{"idProps": 7, "nombreProps": "Bejarano Nevarez, Monica Judith"},
+		{"idProps": 8, "nombreProps": "Robles Leyva, Magda"},
+		{"idProps": 9, "nombreProps": "Dominguez Fregoso, Guadalupe"},
+		{"idProps": 10,"nombreProps": "Marquez Guerrero, Elisa Maria"},
+		{"idProps": 11,"nombreProps": "Estrada, Ana"},
+		{"idProps": 12,"nombreProps": "Chavez Esquivel, Crisn Lariza"}
+	],
+
+	"catProcesos": [
+		{"idProceso": 1, "nombreProceso": "Procedimientos Generales de Planta"},
+		{"idProceso": 2, "nombreProceso": "Sistemas de Calidad"},
+		{"idProceso": 3, "nombreProceso": "Ingenieria"},
+		{"idProceso": 4, "nombreProceso": "Control de Calidad. Lab Propiedades Físicas"},
+		{"idProceso": 5, "nombreProceso": "Control de Calidad. Lab Microbiología"},
+		{"idProceso": 6, "nombreProceso": "Calidad Departamento General"},
+		{"idProceso": 7, "nombreProceso": "Aseguramiento de Calidad/Muestras"},
+		{"idProceso": 8, "nombreProceso": "Manufactura"},
+		{"idProceso": 9, "nombreProceso": "Procesos en seco de planta"},
+		{"idProceso": 10, "nombreProceso": "Limpieza de areas de Producción"},
+		{"idProceso": 11, "nombreProceso": "Procesos de liquidos en planta"},
+		{"idProceso": 11, "nombreProceso": "Mantenimiento"},
+		{"idProceso": 11, "nombreProceso": "Sanitización"}
+	],
+	
+	"catAreas": [
+		{"idArea": 1, "nombreArea": "Seguridad"},
+		{"idArea": 2, "nombreArea": "RH"},
+		{"idArea": 3, "nombreArea": "QS"},
+		{"idArea": 4, "nombreArea": "QC"},
+		{"idArea": 5, "nombreArea": "QA"},
+		{"idArea": 6, "nombreArea": "Producción"},
+		{"idArea": 7, "nombreArea": "Planeación"},
+		{"idArea": 8, "nombreArea": "Mantenimiento"},
+		{"idArea": 9, "nombreArea": "Food Safety"}
+	],
+	
+	"CatStatus": [
+		{"idStatus": 1, "nombreStatus": "Draft"},
+		{"idStatus": 2, "nombreStatus": "Effective"},
+		{"idStatus": 3, "nombreStatus": "Retired"}		
+	],
+	
+	"CatEstatus": [
+		{"idEstatus": 1, "nombreEstatus": "Vigente"},
+		{"idEstatus": 2, "nombreEstatus": "Requiere Completar"},
+		{"idEstatus": 3, "nombreEstatus": "Vencido Revisar"},
+		{"idEstatus": 4, "nombreEstatus": "Eliminado"}
+	],
+	
+	"CatCursosGeneral": [
+		{"idCurso": 1, "temaCurso": "Políticas de Seguridad", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 2, "temaCurso": "Reglamento de Trabajo", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 3, "temaCurso": "Seguridad e Igiene", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 4, "temaCurso": "Políticas del Comedor", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 5, "temaCurso": "Introducción de MJN", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1}
+	],
+	
+		"CatCursosEspecificos": [
+		{"idCurso": 1, "temaCurso": "Calibración de Bombas", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 2, "temaCurso": "Pasteurizadora", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 3, "temaCurso": "Secador", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 4, "temaCurso": "Montacargas", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
+		{"idCurso": 5, "temaCurso": "Bascula Toledo 1232", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1}
 	]
 }

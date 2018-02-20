@@ -52,6 +52,14 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AgGridModule} from 'ag-grid-angular/main';
 import { MyGridApplicationComponent } from './my-grid-application/my-grid-application.component';
 import { RedComponentComponent } from './red-component/red-component.component';
+import {CatPdmService} from './services/cat-pdm.service';
+import {CatEstatusService} from './services/cat-estatus.service';
+import {CatAreasService} from './services/cat-areas.service';
+import {CatStatusService} from './services/cat-status.service';
+import {CatProcesosService} from './services/cat-procesos.service';
+import {CatPropsService} from './services/cat-props.service';
+import { AboutComponent } from './about/about.component';
+import {CatCursosGeneralService} from './services/cat-cursos-general.service';
 
 
 const appRouter: Routes = [
@@ -59,7 +67,8 @@ const appRouter: Routes = [
   {path: 'cfg-cap-pdm', component: CfgCapPdmComponent},
   {path: 'cfg-cap-especifica', component: CfgCapEspecificaComponent},
   {path: 'cfg-cap-general', component: CfgCapGeneralComponent},
-  {path: 'my-grid-application', component: MyGridApplicationComponent}
+  {path: 'my-grid-application', component: MyGridApplicationComponent},
+  {path: 'about', component: AboutComponent}
 ];
 
 @NgModule({
@@ -73,7 +82,8 @@ const appRouter: Routes = [
     FrmCapPdmComponent,
     GridComponent,
     MyGridApplicationComponent,
-    RedComponentComponent
+    RedComponentComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -119,9 +129,13 @@ const appRouter: Routes = [
    // AgGridModule.withComponents([RedComponentComponent])
   ],
   entryComponents: [GridComponent,
-  FrmCapPdmComponent],
+  FrmCapPdmComponent, FrmCapGeneralComponent],
   bootstrap: [AppComponent],
-  providers: []
+  providers: [
+    CatPdmService, CatAreasService, CatEstatusService,
+    CatStatusService, CatProcesosService, CatPropsService,
+    CatPropsService, CatCursosGeneralService
+  ]
 
 })
 export class AppModule { }

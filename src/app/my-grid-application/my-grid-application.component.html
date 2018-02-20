@@ -1,7 +1,12 @@
 <div style="width: 100%;">
   <ag-grid-angular #agGrid style="width: 100%; height: 250px;" class="ag-theme-material"
-    [gridOptions]="gridOptions"
-    [autoGroupColumnDef]="gridOptions.columnDefs"
-    [rowData]="gridOptions.rowData">
+                   id="pdmGrid"
+                   [gridOptions]="gridOptions"
+                   [autoGroupColumnDef]="gridOptions.columnDefs"
+                   [rowData]="gridOptions.rowData"
+                   (rowSelected)="onSeletedRow($event)"
+                   (gridReady)="onGridReady($event)"
+                   (rowDoubleClicked)="editReg($event)"
+                  >
   </ag-grid-angular>
 </div>

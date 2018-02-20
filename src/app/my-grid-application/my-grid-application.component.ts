@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RedComponentComponent} from '../red-component/red-component.component';
 import { GridOptions} from 'ag-grid';
-import {HttpClient} from '@angular/common/http';
-import {Catpdms} from '../models/catpdms';
+import { HttpClient } from '@angular/common/http';
+import { Catpdms } from '../models/catpdms';
+import { CatPdmService } from '../services/cat-pdm.service';
 
 @Component({
   selector: 'app-my-grid-application',
@@ -10,31 +10,36 @@ import {Catpdms} from '../models/catpdms';
   styleUrls: ['./my-grid-application.component.css']
 })
 export class MyGridApplicationComponent implements OnInit {
+
+  /*Variables de control del Grid */
+
+  gridApi;
+  gridColumnApi;
+  rowSelection;
+
   gridOptions: GridOptions;
-  catPdms: Array<Catpdms> = [];
+  catPdms: Catpdms[];
 
-  constructor(private httpCliente: HttpClient ) {
+  constructor(private catpdmservice: CatPdmService, private httpCliente: HttpClient ) {
 
-    this.httpCliente.get('http://localhost:3000/catpdms').subscribe(
+    this.catpdmservice.getAllPdms().then((d: Catpdms[]) => {
+      this.catPdms = d;
+    });
+
+    /*this.httpCliente.get('http://localhost:3000/catpdms').subscribe(
       (data: any[]) => {
         console.log('Listado del catPDMs', data);
         this.catPdms = data;
         this.gridOptions.rowData = data;
       }
-    );
+    );*/
 
     this.gridOptions = <GridOptions>{
-      rowSelection: 'Single',
+      rowSelection: 'single',
       enableFilter: true,
       enableSorting: true,
-      enableColResize: true,
-      suppressCellSelection: false,
-      rowClass: 'itweb-gridrow'
+      enableColResize: true
     };
-    /*this.gridOptions.columnDefs = [
-      { headerName: 'ID', field: 'id', width: 100},
-      { headerName: 'Value', field: 'value', cellRendererFramework: RedComponentComponent , width: 100}
-    ];*/
 
     this.gridOptions.columnDefs = [
       { headerName: 'Código Actual PDM', field: 'codigoactual'},
@@ -48,7 +53,6 @@ export class MyGridApplicationComponent implements OnInit {
       { headerName: 'Estatus', field: 'estatus'}
     ];
 
-    this.gridOptions.rowData = this.catPdms;
     /*this.gridOptions.rowData = [
       {id: 5 , value: 10},
       {id: 10, value: 15},
@@ -57,14 +61,31 @@ export class MyGridApplicationComponent implements OnInit {
       {id: 25, value: 180},
       {id: 30, value: 360}
     ];*/
-    console.log('Info de agGrid', this.gridOptions.columnDefs, this.gridOptions.rowData);
 
     /*this.usuarios = new UserServiceService();
     console.log('Usuarios en el Módulo by-grid', this.usuarios);*/
   }
 
+  public onselect(event: any) {
+    console.log('Seleccion:', this.rowSelection, ' ', event);
+  }
+
+  public onSelectionChange(event: any) {
+    console.log('Se cambio la selecciono de un renglon');
+  }
+
+  public onGridReady(event: any) {
+    console.log('Grid Listo para Pintar');
+    this.gridOptions.rowData = this.catPdms;
+  }
+
+  public onSeletedRow(event: any) {
+  }
+
+  public editReg(event) {
+    let catpdm: Catpdms = event.data;
+  }
   ngOnInit() {
-    console.log('Ya se hizo el onInit');
   }
 
 }

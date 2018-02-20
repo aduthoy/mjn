@@ -3,10 +3,20 @@ import {FormControl, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../../app.component';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operator/startWith';
-import {PdmPropietariosService} from '../../services/pdm-propietarios.service';
 import {map} from 'rxjs/operator/map';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Catpdms} from '../../models/catpdms';
+import { CatStatusService } from '../../services/cat-status.service';
+import {CatStatus} from '../../models/cat-status';
+import {CatProps} from '../../models/cat-props';
+import {CatProcesos} from '../../models/cat-procesos';
+import {CatEstatus} from '../../models/cat-estatus';
+import {CatAreas} from '../../models/cat-areas';
+import {CatPropsService} from '../../services/cat-props.service';
+import {CatAreasService} from '../../services/cat-areas.service';
+import {CatEstatusService} from '../../services/cat-estatus.service';
+import {CatProcesosService} from '../../services/cat-procesos.service';
+import {CatPdmService} from '../../services/cat-pdm.service';
 
 
 @Component({
@@ -18,59 +28,15 @@ export class FrmCapPdmComponent implements OnInit {
 
   idCurso = '';
   nombreCurso = '';
-  descripcionCurso = '';
   urlPDM = '';
-  cursoAcitvo = true;
-
-  status = [
-    {idStatus: '-1', descStatus: 'Retired'},
-    {idStatus: '0', descStatus: 'Draft'},
-    {idStatus: '1', descStatus: 'Effective'}
-  ];
-
   propietarioCtrl: FormControl;
-  filtroPropietarios: Observable<any[]>;
+  status: CatStatus[];
+  propsDoctos: CatProps[];
+  procesos: CatProcesos[];
+  estatus: CatEstatus[];
+  areas: CatAreas[];
 
-  propDoctos: PdmPropietariosService [] = [
-    {idPropietario: '1', nombrePropietario: 'Portillo, Jose'},
-    {idPropietario: '2', nombrePropietario: 'Leyva, Carloina'},
-    {idPropietario: '3', nombrePropietario: 'Quezada Miramontes, Leona Yazmin'},
-    {idPropietario: '4', nombrePropietario: 'Armendariz, Josecarlos'},
-    {idPropietario: '5', nombrePropietario: 'Robles Leyva, Magda'},
-    {idPropietario: '6', nombrePropietario: 'Varela, Jorge'},
-    {idPropietario: '7', nombrePropietario: 'Bejarano Nevarez, Monica Judith'},
-    {idPropietario: '8', nombrePropietario: 'Estrada, Ana'},
-    {idPropietario: '9', nombrePropietario: 'Marquez Guerrero, Elsa María'},
-    {idPropietario: '10', nombrePropietario: 'Chavez Esquivel, Crisn Lariza'}
-  ];
-
-  Procesos = [
-      {idProceso:'1', nombreProceso:'Procedimientos generales de planta'},
-      {idProceso:'1', nombreProceso:'Sistemas de calidad'},
-      {idProceso:'1', nombreProceso:'Ingenieria'},
-      {idProceso:'1', nombreProceso:'Control de calidad. Lab Propiedades fisicas'},
-      {idProceso:'1', nombreProceso:'Control de calidad. Lab Microbiologia'},
-      {idProceso:'1', nombreProceso:'Calidad Departamento General'},
-      {idProceso:'1', nombreProceso:'Aseguramiento de calidad/Muestras'}
-  ];
-
-  Estados =[
-    {idEstado:'1', nombreEstado:'Vigente'},
-    {idEstado:'1', nombreEstado:'Requiere Completar'},
-    {idEstado:'1', nombreEstado:'Vencido Revisar'},
-    {idEstado:'1', nombreEstado:'Eliminado'}
-  ];
-
-  Areas =[
-    {idArea:'1', nombreArea:'Seguridad'},
-    {idArea:'1', nombreArea:'RH'},
-    {idArea:'1', nombreArea:'QS'},
-    {idArea:'1', nombreArea:'QC'},
-    {idArea:'1', nombreArea:'QA'},
-    {idArea:'1', nombreArea:'QC'},
-    {idArea:'1', nombreArea:'Producción'},
-    {idArea:'1', nombreArea:'Mantenimiento'}
-  ];
+  public pdm: Catpdms;
 
   // Validador de idCurso
   idCursoValidator = new FormControl('', [
@@ -86,20 +52,35 @@ export class FrmCapPdmComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor( private matDialogRef: MatDialogRef<FrmCapPdmComponent>,
-               @Inject(MAT_DIALOG_DATA) public curso: Catpdms) {
+  constructor (private catstatus: CatStatusService, private catprops: CatPropsService,
+               private catareas: CatAreasService, private catestatus: CatEstatusService, private catprocesos: CatProcesosService,
+               private matDialogRef: MatDialogRef<FrmCapPdmComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: any, private catpdmservice: CatPdmService){
+
+    console.log('Contructor de la FRM_CURSO con data = ', data);
+
     this.propietarioCtrl = new FormControl();
-    /*this.filtroPropietarios = this.propietarioCtrl.valueChanges
-    .pipe(
-        startWith(''),
-        map(prop => prop ? this.filtrarPriopietarios(prop) : this.propDoctos.slice())
-      );*/
+
+    /* Cargando los catalogos de los combos */
+    this.catprops.getAllProps().then((a: CatProps[]) => {this.propsDoctos = a; });
+    this.catprocesos.getAllProcesos().then((d: CatProcesos[]) => {this.procesos = d; });
+    this.catestatus.getAllCatEstatus().then((c: CatEstatus[]) => {this.estatus = c; });
+
+    this.catstatus.getAllCatStatus().then((e: CatStatus[]) => { this.status = e; });
+    this.catareas.getAllCatAreas().then((b: CatAreas[]) => {this.areas = b; });
+
   }
 
-  filtrarPriopietarios(nombre: string) {
-    return this.propDoctos.filter(prop => prop.nombrePropietario.toLowerCase().indexOf(nombre.toLowerCase()) === 0);
-  }
   ngOnInit() {
+    if (this.data.accion === 'Alta Nuevo PDM') {
+      this.pdm = new Catpdms();
+    } else {
+      if (this.catpdmservice.getcurrPDM() != null) {
+        this.pdm = this.catpdmservice.getcurrPDM();
+      }
+    }
+    console.log('CurrPDM =', this.pdm);
+    console.log('Modo => ', this.data.accion);
   }
 
   public onCancel() {

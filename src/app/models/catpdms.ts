@@ -4,7 +4,7 @@ export class Catpdms {
   titulo:	string;
   fechaefectiva: string;
   status: string;
-  duenodoc: string,
+  duenodoc: string;
   proceso: string;
   area: string;
   estatus: string;
