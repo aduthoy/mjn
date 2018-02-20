@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GridOptions} from 'ag-grid';
+import {CatCapEspecifica} from '../models/cat-cap-especifica';
 
 @Component({
   selector: 'app-cfg-cap-especifica',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CfgCapEspecificaComponent implements OnInit {
 
+  gridOption: GridOptions;
+  catcapespecifica: CatCapEspecifica[];
   constructor() { }
 
   ngOnInit() {
