@@ -1,27 +1,32 @@
 <mat-card class="itweb-inner-form">
   <!--<label style="text-align: right">Estado <i class="material-icons">keyboard_arrow_right</i> Nuevo</label>-->
+  <mat-card-title style="text-align: center;">
+    <span>Cátalogo de Cursos Especificos</span>
+    <br>
+    <span style="font-size: small">{{data.accion}}</span>
+  </mat-card-title>
   <mat-card-content>
     <form>
       <mat-form-field maxlength="30%">
         <input matInput placeholder="Id Curso" [formControl]="idCursoValidator"
-               [errorStateMatcher]="matcher" required [(ngModel)]="idCurso" name="idcurso" maxlength="10">
+               [errorStateMatcher]="matcher" required [(ngModel)]="cce.idCurso" name="idcurso" maxlength="10">
         <mat-error *ngIf="idCursoValidator.hasError('required')">
           Campo <strong>requerido</strong>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field style="width: 60%">
-        <input matInput placeholder="Nombre del Curso" required [formControl]="nombreCursoValidator" [(ngModel)]="nombreCurso" name="nombrecurso">
+        <input matInput placeholder="Nombre del Curso" required [formControl]="nombreCursoValidator" [(ngModel)]="cce.temaCurso" name="nombrecurso">
         <mat-error *ngIf="nombreCursoValidator.hasError('required')"> Campo <strong>requerido</strong></mat-error>
         <mat-error *ngIf="nombreCursoValidator.hasError('maxlength')"> No pude tener mas de 50 caracteres</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field style="width: 90%">
-        <textarea matInput placeholder="Descripción del Curso" [(ngModel)]="descripcionCurso" name="desccurso" rows="3" style="width: 100%;"></textarea>
+        <textarea matInput placeholder="Descripción del Curso" [(ngModel)]="cce.descCurso" name="desccurso" rows="3" style="width: 100%;"></textarea>
       </mat-form-field>
       <br>
       <button mat-raised-button="" style="color: darkgreen;"><i class="material-icons">check</i>Aceptar</button>
-      <button mat-raised-button="" style="color: darkred;"><i class="material-icons">cancel</i>Cancelar</button>
+      <button mat-raised-button="" style="color: darkred;" (click)="onCancel()"><i class="material-icons">cancel</i>Cancelar</button>
     </form>
   </mat-card-content>
 </mat-card>

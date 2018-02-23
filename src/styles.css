@@ -65,3 +65,29 @@
   margin-top: .5rem;
   border-top: 3px solid #677685;
 }
+
+.itweb-maincontent {
+  align-content: center;
+}
+
+.itweb-listheader {
+  margin: .5rem;
+  justify-content: space-around;
+  background-color: #e0e0e0;
+  color: #677685;
+  box-shadow: 0 0 .2rem #677685;
+  border-bottom: 1px solid #093b65;
+}
+
+.itweb-card-acciones {
+  display: inline-block;
+  background: #f0f0f0;
+  border-bottom: 1px solid #093b65;
+  padding: 0;
+  border-radius: 5px;
+}
+
+.itweb-card-button-acciones {
+  font-size: small;
+  color: grey;/*#295880;*/
+}

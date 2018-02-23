@@ -60,6 +60,12 @@ import {CatProcesosService} from './services/cat-procesos.service';
 import {CatPropsService} from './services/cat-props.service';
 import { AboutComponent } from './about/about.component';
 import {CatCursosGeneralService} from './services/cat-cursos-general.service';
+import {CatCursosEspecificosService} from './services/cat-cursos-especificos.service';
+import { CatAreasPuestosComponent } from './cat-areas-puestos/cat-areas-puestos.component';
+import {CatPuestosService} from './services/cat-puestos.service';
+import { AbcareasComponent } from './cat-areas-puestos/abcareas.component';
+import { DialogmessageComponent } from './dialogmessage/dialogmessage.component';
+import { AbcPuestosComponent } from './cat-areas-puestos/abc-puestos.component';
 
 
 const appRouter: Routes = [
@@ -68,7 +74,8 @@ const appRouter: Routes = [
   {path: 'cfg-cap-especifica', component: CfgCapEspecificaComponent},
   {path: 'cfg-cap-general', component: CfgCapGeneralComponent},
   {path: 'my-grid-application', component: MyGridApplicationComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'cat-areas-puestos', component: CatAreasPuestosComponent}
 ];
 
 @NgModule({
@@ -83,7 +90,11 @@ const appRouter: Routes = [
     GridComponent,
     MyGridApplicationComponent,
     RedComponentComponent,
-    AboutComponent
+    AboutComponent,
+    CatAreasPuestosComponent,
+    AbcareasComponent,
+    DialogmessageComponent,
+    AbcPuestosComponent
   ],
   imports: [
     BrowserModule,
@@ -129,12 +140,18 @@ const appRouter: Routes = [
    // AgGridModule.withComponents([RedComponentComponent])
   ],
   entryComponents: [GridComponent,
-  FrmCapPdmComponent, FrmCapGeneralComponent],
+    FrmCapPdmComponent,
+    FrmCapGeneralComponent,
+    FrmCapEspecificaComponent,
+    AbcareasComponent,
+    DialogmessageComponent,
+    AbcPuestosComponent
+  ],
   bootstrap: [AppComponent],
   providers: [
     CatPdmService, CatAreasService, CatEstatusService,
     CatStatusService, CatProcesosService, CatPropsService,
-    CatPropsService, CatCursosGeneralService
+    CatPropsService, CatCursosGeneralService, CatCursosEspecificosService, CatPuestosService
   ]
 
 })

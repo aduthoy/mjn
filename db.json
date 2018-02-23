@@ -98,5 +98,15 @@
 		{"idCurso": 3, "temaCurso": "Secador", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
 		{"idCurso": 4, "temaCurso": "Montacargas", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1},
 		{"idCurso": 5, "temaCurso": "Bascula Toledo 1232", "descCurso":"", "fechaEfectiva": "01/01/2018", "estatus": 1}
+	],
+	
+	"Puestos" : [
+		{"puestoId": 1, "areaId":6, "puestoNombre": "Genrete Produccion"},
+		{"puestoId": 2, "areaId":6, "puestoNombre": "Supervisor Produccion"},
+		{"puestoId": 3, "areaId":6, "puestoNombre": "Operador"},
+		{"puestoId": 4, "areaId":1, "puestoNombre": "Jefe de Seguridad"},
+		{"puestoId": 5, "areaId":1, "puestoNombre": "Guardia"},
+		{"puestoId": 6, "areaId":2, "puestoNombre": "Gerente de Recurso Humanos"},
+		{"puestoId": 7, "areaId":2, "puestoNombre": "Auxiliar"}		
 	]
 }

@@ -36,8 +36,9 @@
       <a mat-menu-item [routerLink]="['/cfg-cap-general']">Catálogo de Cursos en General</a>
       <a mat-menu-item [routerLink]="['/cfg-cap-especifica']">Catálogo de Cursos Especificos</a>
       <a mat-menu-item [routerLink]="['/cfg-cap-pdm']">Catálogo de PDMs</a>
+      <a mat-menu-item [routerLink]="['/cat-areas-puestos']">Adm. Areas y Puestos</a>
       <hr>
-      <a mat-menu-item [routerLink]="['/about']">Config 1</a>
+      <a mat-menu-item [routerLink]="['/about']">Acerca de...</a>
   </mat-menu>
 
     <button mat-button="" [matMenuTriggerFor]="configMenu">
@@ -57,12 +58,9 @@
 
   </mat-toolbar-row>
 </mat-toolbar>
+<div class="itweb-maincontent">
+  <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>
-<!--<app-grid></app-grid>-
-
-<app-cfg-cap-pdm></app-cfg-cap-pdm>
-<!--<app-cfg-cap-especifica></app-cfg-cap-especifica>
-<app-cfg-cap-general></app-cfg-cap-general>-->
 
 

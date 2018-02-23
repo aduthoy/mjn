@@ -6,11 +6,11 @@
   <mat-toolbar>
     <mat-toolbar-row>
       <div class="button-row">
-        <button mat-button="">
+        <button mat-button="" (click)="onClickNewButton()">
           <i class="material-icons">add_circle_outline</i>
           Nuevo
         </button>
-        <button mat-button="">
+        <button mat-button="" (click)="onClickEditButton()">
           <i class="material-icons">edit</i>
           Editar
         </button>
@@ -21,5 +21,18 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-  <app-frm-cap-especifica></app-frm-cap-especifica>
+  <mat-card-content>
+    <div style="width: 100%;">
+      <ag-grid-angular #agGrid style="width: 100%; height: 250px;" class="ag-theme-fresh"
+                       id="capGeneralGrid"
+                       rowHeight="18px"
+                       [gridOptions]="gridOptions"
+                       [autoGroupColumnDef]="gridOptions.columnDefs"
+                       [rowData]="gridOptions.rowData"
+                       (selectionChanged)="onSelectedRow($event)"
+                       (gridReady)="onGridReady($event)"
+      >
+      </ag-grid-angular>
+    </div>
+  </mat-card-content>
 </mat-card>

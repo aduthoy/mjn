@@ -63,8 +63,7 @@ export class CfgCapGeneralComponent implements OnInit {
   public onSeletedRow(event: any) {
     this.catgneral = event.api.getSelectedRows()[0];
     this.catcapgensevice.setCurrCursoGeneral(this.catgneral);
-    console.log('SELECCION =>', this.catgneral)
-    console.log('CATPDM => ', this.catcapgensevice.getCurrCursoGeneral());
+    console.log('SELECCION =>', this.catgneral);
   }
 
 }
