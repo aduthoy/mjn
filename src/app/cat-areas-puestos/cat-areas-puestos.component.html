@@ -1,0 +1,67 @@
+<mat-card class="itweb-form">
+  <mat-card-header class="itweb-formtitle">
+    <mat-card-title><h3>Administración de Areas y Puestos</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="display: flex; vertical-align: top;">
+<!--    <mat-grid-list [cols]="2">
+      <mat-grid-tile>-->
+        <mat-card style="width: 50%; border: 1px solid #8b8b8b; border-radius: 5px; margin: 10px">
+          <mat-card-subtitle><strong>Areas</strong></mat-card-subtitle>
+          <mat-card-actions class="itweb-card-acciones">
+            <button mat-button="" color="basic" class="itweb-card-button-acciones" style="color: #092a48" (click)="showAltaDialog()"><i class="material-icons">add_circle</i>Agregar</button>
+            <button mat-button="" color="basic" class="itweb-card-button-acciones" style="color: #092a48" (click)="showEditDialog()"><i class="material-icons">mode_edit</i>Editar</button>
+            <button mat-button="" color="basic" class="itweb-card-button-acciones" style="color: #092a48" (click)="showConfirmDialog()"><i class="material-icons">remove_circle</i>Eliminar</button>
+          </mat-card-actions>
+          <mat-card-content>
+            <div style="width: 100%;">
+              <ag-grid-angular #agGrid style="width: 100%; height: 250px;" class="ag-theme-fresh"
+                               id="areasGrid"
+                               rowHeight="18px"
+                               [gridOptions]="gridAreas"
+                               [autoGroupColumnDef]="gridAreas.columnDefs"
+                               [rowData]="gridAreas.rowData"
+                               (selectionChanged)="onSeletedAreasRow($event)"
+                               (gridReady)="onGridAreasReady($event)"
+              >
+              </ag-grid-angular>
+            </div>
+          </mat-card-content>
+        </mat-card>
+<!--      </mat-grid-tile>
+      <mat-grid-tile>-->
+        <mat-card style="width: 50%; border: 1px solid #8b8b8b; border-radius: 5px; margin: 10px;">
+          <mat-card-subtitle><strong>Puestos</strong></mat-card-subtitle>
+          <mat-card-actions class="itweb-card-acciones">
+            <button mat-button="" color="basic" class="itweb-card-button-acciones" style="color: #092a48" (click)="showAddPuestoDialog()"><i class="material-icons">add_circle</i>Agregar</button>
+            <button mat-button="" color="basic" class="itweb-card-button-acciones" style="color: #092a48" (click)="showEditPuestoDialog()"><i class="material-icons">mode_edit</i>Editar</button>
+            <button mat-button="" color="basic" class="itweb-card-button-acciones" style="color: #092a48" ><i class="material-icons">remove_circle</i>Eliminar</button>
+          </mat-card-actions>
+          <mat-card-content>
+            <div style="width: 100%;">
+              <ag-grid-angular #agGrid style="width: 100%; height: 250px;" class="ag-theme-fresh"
+                               id="puestoGrid"
+                               rowHeight="18px"
+                               [gridOptions]="gridPuesto"
+                               [autoGroupColumnDef]="gridPuesto.columnDefs"
+                               [rowData]="gridPuesto.rowData"
+                               (selectionChanged)="onSeletedPuestosRow($event)"
+              >
+              </ag-grid-angular>
+            </div>
+          </mat-card-content>
+        </mat-card>
+<!--      </mat-grid-tile>
+    </mat-grid-list> -->
+<!--    <div class="row">
+      <div class="col-md-6">
+        <h5>Areas</h5>
+        <div class="row itweb-listheader ">
+          <span class="itweb-listheader-title">Areas</span>
+          <button mat-icon-button="" color="basic"><i class="material-icons">add_circle</i>Agregar</button>
+          <button mat-icon-button="" color="basic"><i class="material-icons">remove_circle</i>Eliminar</button>
+        </div>
+      </div>
+      <div class="col-md-6"><h5>Puestos</h5></div>
+    </div>-->
+  </mat-card-content>
+</mat-card>

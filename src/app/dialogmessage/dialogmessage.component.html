@@ -1,0 +1,18 @@
+<mat-card class="itweb-inner-form">
+<!--  <div class="itweb-dialogheader">
+    <span>Mensaje de la Aplicación</span>
+  </div>-->
+  <mat-card-content>
+    <div class="itweb-contenido">
+      <div class="idweb-icono">
+        <i [class]="icono"></i>
+      </div>
+      <div class="itweb-mensaje">
+      {{data.mensaje}}
+      </div>
+    </div>
+    <div class="itweb-botones">
+      <button mat-raised-button (click)="onClick()"><i class="material-icons">check</i> Ok </button>
+    </div>
+  </mat-card-content>
+</mat-card>

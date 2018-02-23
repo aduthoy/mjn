@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{data.accion}}</h2>
+<div mat-dialog-content>
+  <mat-form-field style="width: 30%">
+    <input matInput placeholder="Area:" required [(ngModel)]="currarea.nombreArea" name="nombrearea" disabled>
+  </mat-form-field>
+  <mat-form-field style="width: 30%">
+    <input matInput placeholder="Cve. Puesto:" required [(ngModel)]="currpuesto.puestoId" name="idpuesto">
+  </mat-form-field>
+  <mat-form-field style="width: 70%">
+    <input matInput placeholder="Nombre del Puesto:" required [(ngModel)]="currpuesto.puestoNombre" name="nombrepuesto">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button=""><i class="material-icons">check</i>Aceptar</button>
+  <button mat-raised-button="" (click)="onCancel()"><i class="material-icons">cancel</i>Cancelar</button>
+</div>
