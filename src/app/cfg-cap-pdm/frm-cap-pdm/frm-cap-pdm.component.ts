@@ -1,9 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MyErrorStateMatcher} from '../../app.component';
-import {Observable} from 'rxjs/Observable';
-import {startWith} from 'rxjs/operator/startWith';
-import {map} from 'rxjs/operator/map';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Catpdms} from '../../models/catpdms';
 import { CatStatusService } from '../../services/cat-status.service';
@@ -19,6 +16,7 @@ import {CatProcesosService} from '../../services/cat-procesos.service';
 import {CatPdmService} from '../../services/cat-pdm.service';
 
 
+
 @Component({
   selector: 'app-frm-cap-pdm',
   templateUrl: './frm-cap-pdm.component.html',
@@ -26,9 +24,6 @@ import {CatPdmService} from '../../services/cat-pdm.service';
 })
 export class FrmCapPdmComponent implements OnInit {
 
-  idCurso = '';
-  nombreCurso = '';
-  urlPDM = '';
   propietarioCtrl: FormControl;
   status: CatStatus[];
   propsDoctos: CatProps[];
@@ -65,7 +60,6 @@ export class FrmCapPdmComponent implements OnInit {
     this.catprops.getAllProps().then((a: CatProps[]) => {this.propsDoctos = a; });
     this.catprocesos.getAllProcesos().then((d: CatProcesos[]) => {this.procesos = d; });
     this.catestatus.getAllCatEstatus().then((c: CatEstatus[]) => {this.estatus = c; });
-
     this.catstatus.getAllCatStatus().then((e: CatStatus[]) => { this.status = e; });
     this.catareas.getAllCatAreas().then((b: CatAreas[]) => {this.areas = b; });
 
@@ -81,6 +75,17 @@ export class FrmCapPdmComponent implements OnInit {
     }
     console.log('CurrPDM =', this.pdm);
     console.log('Modo => ', this.data.accion);
+  }
+
+  public onAceptar() {
+    console.log('Registro Nuevo => ', this.pdm);
+    console.log('Fecha Efectiva => ', this.pdm.fechaEfectivaPdm);
+    if (this.data.accion === 'Alta Nuevo PDM') {
+      this.catpdmservice.postPdm(this.pdm).then((a: Catpdms) => console.log('Curso Almacenado', a[0]));
+    } else {
+      this.catpdmservice.putPdm(this.pdm).then((a: Catpdms) => console.log('Curso Modificado', a[0]));
+    }
+    this.matDialogRef.close();
   }
 
   public onCancel() {

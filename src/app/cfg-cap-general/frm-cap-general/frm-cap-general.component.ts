@@ -12,11 +12,6 @@ import {CatCursosGeneralService} from '../../services/cat-cursos-general.service
 })
 export class FrmCapGeneralComponent implements OnInit {
 
-  idCurso = '';
-  nombreCurso = '';
-  descripcionCurso = '';
-  cursoAcitvo = true;
-
   ccg: CatCapGeneral;
 
   // Validador de idCurso
@@ -44,6 +39,16 @@ export class FrmCapGeneralComponent implements OnInit {
     }
     console.log('CurrCCG =', this.ccg);
     console.log('Modo => ', this.data.accion);
+  }
+
+  public onAceptar() {
+    console.log('Registro Nuevo => ', this.ccg);
+    if (this.data.accion === 'Alta Nuevo CCG') {
+      this.catcapgenservice.postCursoGeneral(this.ccg).then((a: CatCapGeneral) => console.log('Curso Almacenado', a[0]));
+    } else {
+      this.catcapgenservice.putCursoGeneral(this.ccg).then((a: CatCapGeneral) => console.log('Curso Modificado', a[0]));
+    }
+    this.matDialogRef.close();
   }
 
   public onCancel() {

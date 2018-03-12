@@ -1,31 +1,44 @@
 <mat-card class="itweb-inner-form">
   <!--<label style="text-align: right">Estado <i class="material-icons">keyboard_arrow_right</i> Nuevo</label>-->
   <mat-card-title style="text-align: center;">
-    <span>Cátalogo de Cursos Especificos</span>
+    <span>Cátalogo de Cursos Generales</span>
     <br>
     <span style="font-size: small">{{data.accion}}</span>
   </mat-card-title>
   <mat-card-content>
     <form>
-      <mat-form-field maxlength="30%">
+      <mat-form-field style="width: 120px;">
         <input matInput placeholder="Id Curso" [formControl]="idCursoValidator"
-               [errorStateMatcher]="matcher" required [(ngModel)]="cce.idCurso" name="idcurso" maxlength="10">
+               [errorStateMatcher]="matcher" required [(ngModel)]="cce.cve_curso" name="idcurso" maxlength="10">
         <mat-error *ngIf="idCursoValidator.hasError('required')">
           Campo <strong>requerido</strong>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field style="width: 60%">
-        <input matInput placeholder="Nombre del Curso" required [formControl]="nombreCursoValidator" [(ngModel)]="cce.temaCurso" name="nombrecurso">
+      <mat-form-field style="width: 300px;">
+        <input matInput placeholder="Tema o Nombre del Curso" required [formControl]="nombreCursoValidator" [(ngModel)]="cce.nombre_curso" name="nombrecurso">
         <mat-error *ngIf="nombreCursoValidator.hasError('required')"> Campo <strong>requerido</strong></mat-error>
         <mat-error *ngIf="nombreCursoValidator.hasError('maxlength')"> No pude tener mas de 50 caracteres</mat-error>
       </mat-form-field>
       <br>
-      <mat-form-field style="width: 90%">
-        <textarea matInput placeholder="Descripción del Curso" [(ngModel)]="cce.descCurso" name="desccurso" rows="3" style="width: 100%;"></textarea>
+      <mat-form-field style="width: 100%;">
+        <textarea matInput placeholder="Descripción del Curso" [(ngModel)]="cce.tema_curso" name="desccurso" rows="2"></textarea>
       </mat-form-field>
       <br>
-      <button mat-raised-button="" style="color: darkgreen;"><i class="material-icons">check</i>Aceptar</button>
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="Instructor" required  [(ngModel)]="cce.instructor_curso" name="instructuro" style="width: 100%;">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Area" required [(ngModel)]="cce.area_imparte_curso" name="arearespcurso">
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="row">
+        <mat-checkbox [(ngModel)]="cce.estatus_curso" name="estatus_curso">Activo</mat-checkbox>
+      </div>
+      <br>
+      <button mat-raised-button="" style="color: darkgreen;" (click)="onAceptar()"><i class="material-icons">check</i>Aceptar</button>
       <button mat-raised-button="" style="color: darkred;" (click)="onCancel()"><i class="material-icons">cancel</i>Cancelar</button>
     </form>
   </mat-card-content>

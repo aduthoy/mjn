@@ -21,7 +21,7 @@ export class CatPuestosService {
 
   public getAllPuestosByArea(area: any) {
     console.log('getPuestosByArea appi: http://localhost:3000/Puestos/?areaId=' + area);
-    return this.http.get('http://localhost:3000/Puestos/?areaId=' + area).toPromise();
+    return this.http.get('http://www.it-web.mx:3000/Puestos/?areaId=' + area).toPromise();
    /*   .pipe(
       tap(_ => this.log(`buscando puestos del area ${area}`)),
       catchError(this.handleError('getPuestosByArea', []))*
@@ -31,7 +31,7 @@ export class CatPuestosService {
   }
 
   public getPuestoById(puesto: any) {
-    return this.http.get('http://localhost:3000/Puestos/?PuestoId=' + puesto).toPromise();
+    return this.http.get('http://www.it-web.mx:3000/Puestos/?puestoId=' + puesto).toPromise();
   }
 
   private handleError<T> (operation = 'operation', result ?: T) {

@@ -7,11 +7,11 @@ export class CatProcesosService {
   constructor(private http: HttpClient) { }
 
   public getAllProcesos() {
-    return this.http.get('http://localhost:3000/catProcesos').toPromise();
+    return this.http.get('http://www.it-web.mx:3000/catProcesos').toPromise();
   }
 
   public getProcesoById(id: number) {
-    return this.http.get('http://localhost:3000/catProcesos/?id=' + id).toPromise();
+    return this.http.get('http://www.it-web.mx:3000/catProcesos/?id=' + id).toPromise();
   }
 
 }

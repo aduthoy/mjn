@@ -1,11 +1,16 @@
+
 export class Catpdms {
-  codigoactual: string;
-  codigoanterior: string;
-  titulo:	string;
-  fechaefectiva: string;
-  status: string;
-  duenodoc: string;
-  proceso: string;
-  area: string;
-  estatus: string;
+  id: number;
+  cveActualpdm: string;
+  cveAnteriorPmd: string;
+  tituloPdm: string;
+  fk_statusPmd: number;
+  fechaEfectivaPdm: String;
+  duenoDocPdm: string;
+  nombreProcesoPdm: string;
+  fk_areaPdm: number;
+  fk_estatusPdm: number;
+  activo: boolean;
+  fk_user_create: number;
+  fk_user_update: number;
 }

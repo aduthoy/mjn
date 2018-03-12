@@ -12,7 +12,10 @@
       </div>
     </div>
     <div class="itweb-botones">
-      <button mat-raised-button (click)="onClick()"><i class="material-icons">check</i> Ok </button>
+      <mat-dialog-actions>
+        <button mat-raised-button [mat-dialog-close]="data.icono"><i class="material-icons">done</i> Aceptar </button>
+        <button mat-raised-button (click)="onCancel()" *ngIf="dialogtype===2"><i class="material-icons">clear</i> Cancelar </button>
+      </mat-dialog-actions>
     </div>
   </mat-card-content>
 </mat-card>

@@ -1,7 +1,7 @@
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -66,6 +66,10 @@ import {CatPuestosService} from './services/cat-puestos.service';
 import { AbcareasComponent } from './cat-areas-puestos/abcareas.component';
 import { DialogmessageComponent } from './dialogmessage/dialogmessage.component';
 import { AbcPuestosComponent } from './cat-areas-puestos/abc-puestos.component';
+import { AdmPersonalComponent } from './adm-personal/adm-personal.component';
+import {PersonalService} from './services/personal.service';
+import { AbcPersonalComponent } from './adm-personal/abc-personal.component';
+import { RelcapgenAreaspuestosComponent } from './relcapgen-areaspuestos/relcapgen-areaspuestos.component';
 
 
 const appRouter: Routes = [
@@ -75,7 +79,9 @@ const appRouter: Routes = [
   {path: 'cfg-cap-general', component: CfgCapGeneralComponent},
   {path: 'my-grid-application', component: MyGridApplicationComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'cat-areas-puestos', component: CatAreasPuestosComponent}
+  {path: 'cat-areas-puestos', component: CatAreasPuestosComponent},
+  {path: 'adm-personal', component: AdmPersonalComponent},
+  {path: 'relcapgen-aareaspuestos', component: RelcapgenAreaspuestosComponent}
 ];
 
 @NgModule({
@@ -94,7 +100,10 @@ const appRouter: Routes = [
     CatAreasPuestosComponent,
     AbcareasComponent,
     DialogmessageComponent,
-    AbcPuestosComponent
+    AbcPuestosComponent,
+    AdmPersonalComponent,
+    AbcPersonalComponent,
+    RelcapgenAreaspuestosComponent
   ],
   imports: [
     BrowserModule,
@@ -145,13 +154,14 @@ const appRouter: Routes = [
     FrmCapEspecificaComponent,
     AbcareasComponent,
     DialogmessageComponent,
-    AbcPuestosComponent
+    AbcPuestosComponent,
+    AbcPersonalComponent
   ],
   bootstrap: [AppComponent],
   providers: [
     CatPdmService, CatAreasService, CatEstatusService,
     CatStatusService, CatProcesosService, CatPropsService,
-    CatPropsService, CatCursosGeneralService, CatCursosEspecificosService, CatPuestosService
+    CatPropsService, CatCursosGeneralService, CatCursosEspecificosService, CatPuestosService, PersonalService,
   ]
 
 })

@@ -2,65 +2,69 @@
 <!--<div class="logo">
   <p>Mead Johnson Nutrition</p>
 </div>-->
-<img src="../images/meadjohnson.jpg" width="200px">
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>MJN Capacitación</span>
-    <span class="spacer"></span>
+<!--<img src="../assets/images/meadjohnson.jpg" width="300px">-->
+<div class="container-fluid">
+  <mat-toolbar color="secondary" class="mat-elevation-z8">
+    <mat-toolbar-row>
+      <img src="../assets/RB-logo.png" width="110px;">
+      <span>Capacitación</span>
+      <span class="spacer"></span>
 
-    <mat-menu #operacionesMenu="matMenu" yPosition="above" [overlapTrigger]="false">
-      <button mat-menu-item>Operación 1</button>
-      <button mat-menu-item>Operación 1</button>
-      <button mat-menu-item>Operación 1</button>
-      <button mat-menu-item>Operación 1</button>
+      <mat-menu #operacionesMenu="matMenu" yPosition="above" [overlapTrigger]="false">
+        <button mat-menu-item>Operación 1</button>
+        <button mat-menu-item>Operación 1</button>
+        <button mat-menu-item>Operación 1</button>
+        <button mat-menu-item>Operación 1</button>
+      </mat-menu>
+
+      <button mat-button="" [matMenuTriggerFor]="operacionesMenu" disabled>
+        <i class="material-icons">work</i>
+        Operación
+      </button>
+
+      <mat-menu #consultasMenu="matMenu" yPosition="above" [overlapTrigger]="false">
+        <button mat-menu-item>Consultas 1</button>
+        <button mat-menu-item>Consultas 1</button>
+        <button mat-menu-item>Consultas 1</button>
+        <button mat-menu-item>Consultas 1</button>
+      </mat-menu>
+
+      <button mat-button="" [matMenuTriggerFor]="consultasMenu" disabled>
+        <i class="material-icons">folder</i>
+        Consultas y Reportes
+      </button>
+
+      <mat-menu #configMenu="matMenu" yPosition="above" [overlapTrigger]="false">
+        <a mat-menu-item [routerLink]="['/cfg-cap-general']">Catálogo de Cursos en General</a>
+        <a mat-menu-item [routerLink]="['/cfg-cap-especifica']">Catálogo de Cursos Especificos</a>
+        <a mat-menu-item [routerLink]="['/cfg-cap-pdm']">Catálogo de PDMs</a>
+        <a mat-menu-item [routerLink]="['/cat-areas-puestos']">Adm. Areas y Puestos</a>
+        <a mat-menu-item [routerLink]="['/adm-personal']">Adm. de Personal</a>
+        <hr>
+        <a mat-menu-item [routerLink]="['/relcapgen-aareaspuestos']">Adm. de Curos General Vs Areas/Puestos</a>
+        <hr>
+        <a mat-menu-item [routerLink]="['/about']">Acerca de...</a>
     </mat-menu>
 
-    <button mat-button="" [matMenuTriggerFor]="operacionesMenu" disabled>
-      <i class="material-icons">work</i>
-      Operación
-    </button>
+      <button mat-button="" [matMenuTriggerFor]="configMenu">
+        <i class="material-icons">settings</i>
+        Configuración
+      </button>
 
-    <mat-menu #consultasMenu="matMenu" yPosition="above" [overlapTrigger]="false">
-      <button mat-menu-item>Consultas 1</button>
-      <button mat-menu-item>Consultas 1</button>
-      <button mat-menu-item>Consultas 1</button>
-      <button mat-menu-item>Consultas 1</button>
-    </mat-menu>
+      <mat-menu #seguridadMenu="matMenu" yPosition="above" [overlapTrigger]="false">
+        <button mat-menu-item>Usuarios</button>
+        <button mat-menu-item>Perfiles</button>
+      </mat-menu>
 
-    <button mat-button="" [matMenuTriggerFor]="consultasMenu" disabled>
-      <i class="material-icons">folder</i>
-      Consultas y Reportes
-    </button>
+      <button mat-button="" [matMenuTriggerFor]="seguridadMenu" disabled>
+        <i class="material-icons">lock_outline</i>
+        Configuración
+      </button>
 
-    <mat-menu #configMenu="matMenu" yPosition="above" [overlapTrigger]="false">
-      <a mat-menu-item [routerLink]="['/cfg-cap-general']">Catálogo de Cursos en General</a>
-      <a mat-menu-item [routerLink]="['/cfg-cap-especifica']">Catálogo de Cursos Especificos</a>
-      <a mat-menu-item [routerLink]="['/cfg-cap-pdm']">Catálogo de PDMs</a>
-      <a mat-menu-item [routerLink]="['/cat-areas-puestos']">Adm. Areas y Puestos</a>
-      <hr>
-      <a mat-menu-item [routerLink]="['/about']">Acerca de...</a>
-  </mat-menu>
-
-    <button mat-button="" [matMenuTriggerFor]="configMenu">
-      <i class="material-icons">settings</i>
-      Configuración
-    </button>
-
-    <mat-menu #seguridadMenu="matMenu" yPosition="above" [overlapTrigger]="false">
-      <button mat-menu-item>Usuarios</button>
-      <button mat-menu-item>Perfiles</button>
-    </mat-menu>
-
-    <button mat-button="" [matMenuTriggerFor]="seguridadMenu" disabled>
-      <i class="material-icons">lock_outline</i>
-      Configuración
-    </button>
-
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="itweb-maincontent">
-  <router-outlet></router-outlet>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-
 

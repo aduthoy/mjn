@@ -107,6 +107,12 @@
 		{"puestoId": 4, "areaId":1, "puestoNombre": "Jefe de Seguridad"},
 		{"puestoId": 5, "areaId":1, "puestoNombre": "Guardia"},
 		{"puestoId": 6, "areaId":2, "puestoNombre": "Gerente de Recurso Humanos"},
-		{"puestoId": 7, "areaId":2, "puestoNombre": "Auxiliar"}		
+		{"puestoId": 7, "areaId":2, "puestoNombre": "Auxiliar"},		
+		{"puestoId": 8, "areaId":5, "puestoNombre": "Asistente de Dirección"}		
+	],
+	
+	"Personal" : [
+		{"id": 1, "idEmpleado": "E001", "nombreEmpleado": "Jorge Luis", "apellidoPaterno": "Vareala", "apellidoMaterno": "Salgado", "areaEmpleado": {"idArea": 6, "nombreArea": "Producción"}, "puestoEmpleado": {"puestoId": 1, "areaId":6, "puestoNombre": "Genrete Produccion"} },
+		{"id": 2, "idEmpleado": "E002", "nombreEmpleado": "Gabriela", "apellidoPaterno": "Martinez", "apellidoMaterno": "", "areaEmpleado": {"idArea": 5, "nombreArea": "QA"}, "puestoEmpleado": {"puestoId": 8, "areaId":5, "puestoNombre": "Asistente de Direccion"} }
 	]
 }

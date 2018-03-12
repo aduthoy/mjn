@@ -7,10 +7,10 @@ export class CatStatusService {
   constructor(private http: HttpClient) { }
 
   public getAllCatStatus(): Promise<Object> {
-    return this.http.get('http://localhost:3000/CatStatus').toPromise();
+    return this.http.get('http://www.it-web.mx:3000/CatStatus').toPromise();
   }
 
   public getCatStatusById (id: number) {
-    return this.http.get('http://localhost:3000/CatStatus/?id=' + id).toPromise();
+    return this.http.get('http://www.it-web.mx:3000/CatStatus/?id=' + id).toPromise();
   }
 }

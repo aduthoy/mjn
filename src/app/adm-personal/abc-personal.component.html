@@ -1,0 +1,43 @@
+<mat-card class="itweb-inner-form">
+  <!--<label style="text-align: right">Estado <i class="material-icons">keyboard_arrow_right</i> Nuevo</label>-->
+  <mat-card-title style="text-align: center;">
+    <span>Administración de Personal</span>
+    <br>
+    <span style="font-size: small">{{data.accion}}</span>
+  </mat-card-title>
+  <mat-card-content>
+    <form form>
+      <mat-form-field style="width: 30%">
+        <input matInput placeholder="Id Empleado:" required [(ngModel)]="currEmpleado.idEmpleado" name="idempleado">
+      </mat-form-field>
+      <mat-form-field style="width: 70%">
+        <input matInput placeholder="Nombre(s)" required [(ngModel)]="currEmpleado.nombreEmpleado" name="nombreEmpelado" >
+      </mat-form-field>
+      <mat-form-field style="width: 60%">
+        <input matInput placeholder="Apellido Paterno" required [(ngModel)]="currEmpleado.apellidoPaterno" name="apellidopaterno">
+      </mat-form-field>
+      <mat-form-field style="width: 60%">
+        <input matInput placeholder="Apellido Materno" required [(ngModel)]="currEmpleado.apellidoMaterno" name="apellidomaterno">
+      </mat-form-field>
+      <br>
+      <div class="mat-row">
+        <mat-form-field>
+          <mat-select placeholder="Area" name="areaEmpleado" (selectionChange)="buscaPuestos($event)" [(ngModel)]="currEmpleado.areaEmpleado.idArea">
+            <mat-option *ngFor="let area of areas" [value] = "area.idArea" >
+              {{ area.nombreArea }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="puesto" name="puestoEmpelado" [(ngModel)]="currEmpleado.puestoEmpleado.puestoId">
+            <mat-option *ngFor="let puesto of puesos" [value] = "puesto.puestoId">
+              {{ puesto.puestoNombre }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button="" style="color: darkgreen;" (click)="onAceptar()"><i class="material-icons">check</i>Aceptar</button>
+      <button mat-raised-button="" style="color: darkred;" (click)="onCancel()"><i class="material-icons">cancel</i>Cancelar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

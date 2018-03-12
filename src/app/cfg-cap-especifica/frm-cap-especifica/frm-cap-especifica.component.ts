@@ -4,7 +4,6 @@ import {MyErrorStateMatcher} from '../../app.component';
 import {CatCapEspecifica} from '../../models/cat-cap-especifica';
 import {CatCursosEspecificosService} from '../../services/cat-cursos-especificos.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {CatCapGeneral} from '../../models/cat-cap-general';
 
 @Component({
   selector: 'app-frm-cap-especifica',
@@ -12,12 +11,6 @@ import {CatCapGeneral} from '../../models/cat-cap-general';
   styleUrls: ['./frm-cap-especifica.component.css']
 })
 export class FrmCapEspecificaComponent implements OnInit {
-
-  idCurso = '';
-  nombreCurso = '';
-  descripcionCurso = '';
-  cursoAcitvo = true;
-  modo = false;
 
   cce: CatCapEspecifica;
 
@@ -38,7 +31,7 @@ export class FrmCapEspecificaComponent implements OnInit {
 
   ngOnInit() {
     if (this.data.accion === 'Alta Nuevo Curso Especifico') {
-      this.cce = new CatCapGeneral();
+      this.cce = new CatCapEspecifica();
     } else  {
       if (this.catcurespservice.getCurrCursoEspecifio() != null) {
         this.cce = this.catcurespservice.getCurrCursoEspecifio();
@@ -46,6 +39,16 @@ export class FrmCapEspecificaComponent implements OnInit {
     }
     console.log('CCE =', this.cce);
     console.log('Accino =', this.data.accion);
+  }
+
+  public onAceptar() {
+    console.log('Registro Nuevo => ', this.cce);
+    if (this.data.accion === 'Alta Nuevo Curso Especifico') {
+      this.catcurespservice.postCursoEspecifico(this.cce).then((a: CatCapEspecifica) => console.log('Curso Almacenado', a[0]));
+    } else {
+      this.catcurespservice.putCursoEspecifico(this.cce).then((a: CatCapEspecifica) => console.log('Curso Modificado', a[0]));
+    }
+    this.matdialogref.close();
   }
 
   onCancel() {

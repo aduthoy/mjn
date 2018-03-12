@@ -27,7 +27,6 @@ export class CatAreasPuestosComponent implements OnInit {
   gridPuesto: GridOptions;
 
   constructor(private catareasservice: CatAreasService, private catpuestos: CatPuestosService, private dialog: MatDialog) {
-    this.catareasservice.getAllCatAreas().then((a: CatAreas[]) => { this.areas = a; });
 
     this.gridAreas = <GridOptions> {
       rowSelection: 'single'
@@ -62,7 +61,8 @@ export class CatAreasPuestosComponent implements OnInit {
   }
 
   onGridAreasReady() {
-    this.gridAreas.rowData = this.areas;
+    this.catareasservice.getAllCatAreas().then((a: CatAreas[]) => { this.gridAreas.rowData = a; });
+//    this.gridAreas.rowData = this.areas;
   }
 
   showAltaDialog() {
