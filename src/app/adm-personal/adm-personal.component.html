@@ -14,7 +14,7 @@
           <i class="material-icons">edit</i>
           Editar
         </button>
-        <button mat-button="" id="delete">
+        <button mat-button="" id="delete" (click)="onClickDeleteButton()">
           <i class="material-icons">delete</i>
           Borrar
         </button>
@@ -31,7 +31,6 @@
                        [rowData]="personalgridOptions.rowData"
                        (selectionChanged)="onSeletedRow($event)"
                        (gridReady)="onGridReady($event)"
-                       (rowDoubleClicked)="editReg($event)"
       >
       </ag-grid-angular>
     </div>

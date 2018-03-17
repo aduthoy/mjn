@@ -4,8 +4,6 @@ import {PersonalService} from '../services/personal.service';
 import {Personal} from '../models/personal';
 import {MatDialog} from '@angular/material';
 import {AbcPersonalComponent} from './abc-personal.component';
-import {Puestos} from '../models/puestos';
-import {CatAreas} from '../models/cat-areas';
 import {DialogmessageComponent} from '../dialogmessage/dialogmessage.component';
 
 @Component({
@@ -18,7 +16,7 @@ export class AdmPersonalComponent implements OnInit {
   personalgridOptions: GridOptions;
   currEmpleado;
 
-  constructor(private personalsvr: PersonalService, private dialog: MatDialog) {
+  constructor(private personalsvr: PersonalService, private dialog: MatDialog, public msgDialog: MatDialog) {
 
     this.personalgridOptions = <GridOptions>{
       rowSelection: 'single',
@@ -28,21 +26,26 @@ export class AdmPersonalComponent implements OnInit {
     };
 
     this.personalgridOptions.columnDefs = [
+      {headerName: 'Estado', field: 'activo', width: 100},
       {headerName: 'Id. Empelado', field: 'idEmpleado'},
       {headerName: 'Nombre Empleado', field: 'nombreEmpleado'},
       {headerName: 'A. Paterno', field: 'apellidoPaterno'},
       {headerName: 'A. Materno', field: 'apellidoMaterno'},
-      {headerName: 'Area', field: 'areaEmpleado.nombreArea'},
-      {headerName: 'Puesto', field: 'puestoEmpleado.puestoNombre'}
+      {headerName: 'Area', field: 'nombreArea'},
+      {headerName: 'Puesto', field: 'nombrePuesto'}
     ];
+
+    this.dialog.afterAllClosed.subscribe((b: any) => {
+      this.personalsvr.getAllPersonal().then((d: Personal[]) => {
+        this.personalgridOptions.rowData = d;
+      });
+    });
   }
 
   ngOnInit() {
   }
 
-  onGridReady(evento: any) {
-    this.personalsvr.getAllPersonal().then((a: Personal[]) => { this.personalgridOptions.rowData = a; });
-  }
+  onGridReady(evento: any) {}
 
   onSeletedRow(evento: any) {
     this.currEmpleado = evento.api.getSelectedRows()[0];
@@ -51,14 +54,10 @@ export class AdmPersonalComponent implements OnInit {
 
   onClickNewButton() {
     this.currEmpleado = new Personal();
-    this.currEmpleado.areaEmpleado = new CatAreas();
-    this.currEmpleado.puestoEmpleado = new Puestos();
+    /*this.currEmpleado.areaEmpleado = new CaAreas();
+    this.currEmpleado.puestoEmpleado = new Puestos();*/
     this.personalsvr.setCurrEmpleado(this.currEmpleado);
     this.dialog.open(AbcPersonalComponent, {data: {accion: 'Alta de Personal'}});
-    this.personalsvr.getAllPersonal().then( (a: Personal[]) => { this.personalgridOptions.rowData = a; });
-    console.log('Refresh Grid');
-    const params = { force : true };
-    this.personalgridOptions.api.refreshCells(params);
   }
 
   onClickEditButton() {
@@ -67,6 +66,32 @@ export class AdmPersonalComponent implements OnInit {
     } else {
       this.personalsvr.setCurrEmpleado(this.currEmpleado);
       this.dialog.open(AbcPersonalComponent, {data: {accion: 'Editando Personal'}});
+    }
+  }
+
+  onClickDeleteButton() {
+    if (this.currEmpleado === null || this.currEmpleado === undefined) {
+      this.msgDialog.open(DialogmessageComponent, {data: {mensaje: 'Seleccione el empleado a eliminar, por favor.',
+          icono: 1, dialogtype: 1}});
+    } else {
+      const dialogref = this.msgDialog.open(DialogmessageComponent, {data: {mensaje: 'Seguro de eliminar el Empleado ' +
+          this.currEmpleado.nombreEmpleado + ' ' + this.currEmpleado.apellidoPaterno + ' ' + this.currEmpleado.apellidoMaterno,
+          icono: 3, dialogtype: 2}});
+      dialogref.afterClosed().subscribe( (respuesta: number) => {
+        if (respuesta !== undefined) {
+          console.log('Hay que borrar');
+          this.personalsvr.deletePersonal(this.currEmpleado).then( d => {
+            this.personalsvr.getAllPersonal().then((e: Personal[]) => {
+              this.personalgridOptions.rowData = e;
+              console.log('Actualizando Empleados');
+            });
+            this.currEmpleado = null;
+          });
+        } else {
+          console.log('Se arrepintio');
+          this.currEmpleado = null;
+        }
+      });
     }
   }
 }

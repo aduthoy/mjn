@@ -28,12 +28,12 @@ export class CfgCapPdmComponent implements OnInit {
 
     this.gridOptions.columnDefs = [
       { headerName: 'Código Actual', field: 'cveActualpdm'},
-      { headerName: 'Código Anterior', field: 'cveAnteriorPmd'},
+//      { headerName: 'Código Anterior', field: 'cveAnteriorPmd'},
       { headerName: 'Titulo', field: 'tituloPdm'},
-      { headerName: 'Status', field: 'fk_statusPmd'},
+//      { headerName: 'Status', field: 'fk_statusPmd'},
       { headerName: 'Fecha Efectiva', field: 'fechaEfectivaPdm'},
       { headerName: 'Dueño del Documento', field: 'duenoDocPdm'},
-      { headerName: 'Proceso', field: 'nombreProcesoPdm'},
+//      { headerName: 'Proceso', field: 'nombreProcesoPdm'},
       { headerName: 'Area', field: 'fk_areaPdm'},
       { headerName: 'Estatus', field: 'fk_estatusPdm'},
       { headerName: 'Actvio', field: 'activo'},
@@ -97,7 +97,7 @@ export class CfgCapPdmComponent implements OnInit {
   public onSeletedRow(event: any) {
     this.catpdm = event.api.getSelectedRows()[0];
     this.catpdmservice.setcurrPDM(this.catpdm);
-    console.log('SELECCION =>', this.catpdm)
+    console.log('SELECCION =>', this.catpdm);
     console.log('CATPDM => ', this.catpdmservice.getcurrPDM());
   }
 }

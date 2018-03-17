@@ -14,13 +14,13 @@
           Campo <strong>requerido</strong>
         </mat-error>
       </mat-form-field>
-      <mat-form-field maxlength="30%">
+      <!--<mat-form-field maxlength="30%">
         <input matInput placeholder="Código PDM" [formControl]="idCursoValidator"
                [errorStateMatcher]="matcher" required [(ngModel)]="pdm.cveAnteriorPmd" name="idcurso" maxlength="25">
         <mat-error *ngIf="idCursoValidator.hasError('required')">
           Campo <strong>requerido</strong>
         </mat-error>
-      </mat-form-field>
+      </mat-form-field>-->
       <mat-form-field style="width: 60%">
         <input matInput placeholder="Titulo del PDM" required [formControl]="nombreCursoValidator" [(ngModel)]="pdm.tituloPdm" name="nombrecurso">
         <mat-error *ngIf="nombreCursoValidator.hasError('required')"> Campo <strong>requerido</strong></mat-error>
@@ -33,13 +33,13 @@
                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                  <mat-datepicker #picker></mat-datepicker>
                </mat-form-field>
-               <mat-form-field>
+               <!--<mat-form-field>
                  <mat-select placeholder="Status - Sel. Uno" [(ngModel)]="pdm.fk_statusPmd" name="status">
                    <mat-option *ngFor="let estado of status" [value] = "estado.idStatus">
                      {{ estado.nombreStatus }}
                    </mat-option>
                  </mat-select>
-               </mat-form-field>
+               </mat-form-field>-->
                <mat-form-field style="width: 350px;">
                  <input matInput placeholder="Dueño del Documento" aria-label="prop" [formControl]="propietarioCtrl" [(ngModel)]="pdm.duenoDocPdm" name="duenio"> <!-- [matAutocomplete]="auto" > -->
                  <!--<mat-autocomplete #auto="matAutocomplete">
@@ -48,26 +48,26 @@
                    </mat-option>
                  </mat-autocomplete>-->
                </mat-form-field>
-               <mat-form-field> <!-- style="width: 350px;">-->
+               <!--<mat-form-field>
                  <mat-select placeholder="Nombre del Proces" [(ngModel)]="pdm.nombreProcesoPdm" name="proceso">
                    <mat-option *ngFor="let proceso of procesos" [value] = "proceso.idProceso">
                      {{proceso.nombreProceso}}
                    </mat-option>
                  </mat-select>
-               </mat-form-field>
+               </mat-form-field>-->
            </div>
           <br>
       <div class="mat-row">
             <mat-form-field> <!-- style="width: 350px;">-->
-              <mat-select placeholder="Area" [(ngModel)]="pdm.fk_areaPdm" name="area">
-                <mat-option *ngFor="let area of areas" [value] = "area.idArea" aria-selected="true">
+              <mat-select placeholder="Area" [(ngModel)]="pdm.fk_areaPdm">
+                <mat-option *ngFor="let area of areas" [value] = "area.id" aria-selected="true">
                   {{ area.nombreArea }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
 
             <mat-form-field> <!-- style="width: 350px;">-->
-              <mat-select placeholder="Estatus" [(ngModel)]="pdm.fk_estatusPdm" name="estatus">
+              <mat-select placeholder="Estatus" [(ngModel)]="pdm.fk_estatusPdm">
                 <mat-option *ngFor="let estado of estatus" [value] = "estado.idEstatus">
                   {{ estado.nombreEstatus}}
                 </mat-option>

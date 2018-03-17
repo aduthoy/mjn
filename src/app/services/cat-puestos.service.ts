@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Puestos} from '../models/puestos';
-import {catchError, map, tap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
-import {observable} from 'rxjs/symbol/observable';
+
 
 @Injectable()
 export class CatPuestosService {
@@ -15,23 +14,38 @@ export class CatPuestosService {
 
   constructor(private http: HttpClient) { }
 
+  headers = new HttpHeaders({'Content-Type' : 'application/json'});
+
+  public setCurrPuesto(puesto: Puestos) {
+    this.currPuesto = puesto;
+  }
+
+  public getCurrPuesto() {
+    return this.currPuesto;
+  }
+
   public getAllPuestos() {
     return this.http.get(this.url).toPromise();
   }
 
   public getAllPuestosByArea(area: any) {
-    console.log('getPuestosByArea appi: http://localhost:3000/Puestos/?areaId=' + area);
-    return this.http.get('http://www.it-web.mx:3000/Puestos/?areaId=' + area).toPromise();
-   /*   .pipe(
-      tap(_ => this.log(`buscando puestos del area ${area}`)),
-      catchError(this.handleError('getPuestosByArea', []))*
-    );*/
-    /*console.log('Respuesta del Get => ', this.puestos);
-    return this.puestos;*/
+    return this.http.get('http://localhost:8000/api/areas/' + area + '/puestos').toPromise();
   }
 
   public getPuestoById(puesto: any) {
-    return this.http.get('http://www.it-web.mx:3000/Puestos/?puestoId=' + puesto).toPromise();
+    return this.http.get('http://localhost:8000/api/puestos/' + puesto).toPromise();
+  }
+
+  public postCatPuestos(puesto: Puestos) {
+    return this.http.post('http://localhost:8000/api/puestos', JSON.stringify(puesto), { headers: this.headers }).toPromise();
+  }
+
+  public putCatPuestos(puesto: Puestos) {
+    return this.http.put('http://localhost:8000/api/puestos/' + puesto.id, JSON.stringify(puesto), {headers: this.headers}).toPromise();
+  }
+
+  public deleteCatPuestos(puesto: Puestos) {
+    return this.http.delete('http://localhost:8000/api/puestos/' + puesto.id, {headers: this.headers}).toPromise();
   }
 
   private handleError<T> (operation = 'operation', result ?: T) {
@@ -44,13 +58,5 @@ export class CatPuestosService {
 
   private log(message: string) {
     console.log('mensaje de error', message);
-  }
-
-  public setCurrPuesto(puesto: Puestos) {
-    this.currPuesto = puesto;
-  }
-
-  public getCurrPuesto() {
-    return this.currPuesto;
   }
 }

@@ -24,6 +24,17 @@ export class AbcPuestosComponent implements OnInit {
     this.currpuesto = this.puestoSrv.getCurrPuesto();
   }
 
+  onclikAdd() {
+    if (this.data.accion === 'Nuevo Puesto') {
+      this.currpuesto.fk_area = this.currarea.id;
+      this.currpuesto.fk_subArea = 0;
+      this.puestoSrv.postCatPuestos(this.currpuesto).then();
+    } else {
+      this.puestoSrv.putCatPuestos(this.currpuesto).then();
+    }
+    this.dialogRef.close();
+  }
+
   onCancel() {
     this.dialogRef.close();
   }

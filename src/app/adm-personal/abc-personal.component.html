@@ -22,20 +22,25 @@
       <br>
       <div class="mat-row">
         <mat-form-field>
-          <mat-select placeholder="Area" name="areaEmpleado" (selectionChange)="buscaPuestos($event)" [(ngModel)]="currEmpleado.areaEmpleado.idArea">
-            <mat-option *ngFor="let area of areas" [value] = "area.idArea" >
+          <mat-select placeholder="Area" name="areaEmpleado" (selectionChange)="buscaPuestos($event)" [(ngModel)]="currEmpleado.fk_Area">
+            <mat-option *ngFor="let area of areas" [value] = "area.id" >
               {{ area.nombreArea }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="puesto" name="puestoEmpelado" [(ngModel)]="currEmpleado.puestoEmpleado.puestoId">
-            <mat-option *ngFor="let puesto of puesos" [value] = "puesto.puestoId">
-              {{ puesto.puestoNombre }}
+          <mat-select placeholder="puesto" name="puestoEmpelado" [(ngModel)]="currEmpleado.fk_Puesto">
+            <mat-option *ngFor="let puesto of puesos" [value] = "puesto.id">
+              {{ puesto.nombrePuesto }}
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <br>
+        <div class="mat-row">
+          <mat-checkbox [(ngModel)]="currEmpleado.activo" id="pdm_activo" name="pdm_activo">Activo</mat-checkbox>
+        </div>
       </div>
+      <br>
       <button mat-raised-button="" style="color: darkgreen;" (click)="onAceptar()"><i class="material-icons">check</i>Aceptar</button>
       <button mat-raised-button="" style="color: darkred;" (click)="onCancel()"><i class="material-icons">cancel</i>Cancelar</button>
     </form>

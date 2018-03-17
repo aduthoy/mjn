@@ -34,6 +34,7 @@ export class CfgCapEspecificaComponent implements OnInit {
       { headerName: 'Tema del Curso', field: 'tema_curso', width: 250},
       { headerName: 'Instructor', field: 'instructor_curso'},
       { headerName: 'Area Resp.', field: 'area_imparte_curso'},
+      { headerName: 'Duración', field: 'duracionCurso'},
       { headerName: 'Estatus', field: 'estatus_curso'},
       { headerName: 'Usuario Creo', field: 'fk_user_create'},
       { headerName: 'Fecha Creacion', field: 'created_at'},
@@ -70,7 +71,8 @@ export class CfgCapEspecificaComponent implements OnInit {
     if (this.catespecifica === null || this.catespecifica === undefined) {
       this.msgDialog.open(DialogmessageComponent, {data: {mensaje: 'Seleccione el curso a eliminar, por favor.', icono: 1, dialogtype: 1}});
     } else {
-      const dialogref = this.msgDialog.open(DialogmessageComponent, {data: {mensaje: 'Seguro de eliminar el curso ' + this.catespecifica.nombre_curso,
+      const dialogref = this.msgDialog.open(DialogmessageComponent, {data: {mensaje: 'Seguro de eliminar el curso ' +
+          this.catespecifica.nombre_curso,
           icono: 3, dialogtype: 2}});
       dialogref.afterClosed().subscribe( (respuesta: number) => {
         if (respuesta !== undefined) {

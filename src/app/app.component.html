@@ -41,7 +41,11 @@
         <a mat-menu-item [routerLink]="['/cat-areas-puestos']">Adm. Areas y Puestos</a>
         <a mat-menu-item [routerLink]="['/adm-personal']">Adm. de Personal</a>
         <hr>
-        <a mat-menu-item [routerLink]="['/relcapgen-aareaspuestos']">Adm. de Curos General Vs Areas/Puestos</a>
+        <a mat-menu-item [routerLink]="['/']">Adm. de Curos General Vs Areas/Puestos</a>
+        <a mat-menu-item [routerLink]="['/']">Adm. de Curos Especifico Vs Areas/Puestos</a>
+        <a mat-menu-item [routerLink]="['/']">Adm. PDMs Vs Areas/Puestos</a>
+        <hr>
+        <a mat-menu-item [routerLink]="['/']">Adm. Calendarios de Capacitación</a>
         <hr>
         <a mat-menu-item [routerLink]="['/about']">Acerca de...</a>
     </mat-menu>
@@ -58,7 +62,7 @@
 
       <button mat-button="" [matMenuTriggerFor]="seguridadMenu" disabled>
         <i class="material-icons">lock_outline</i>
-        Configuración
+        Seguridad
       </button>
 
     </mat-toolbar-row>

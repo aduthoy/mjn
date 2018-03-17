@@ -5,6 +5,7 @@ export class CatCapGeneral {
     instructor_curso: string;
     tema_curso: string;
     area_imparte_curso: string;
+    duracionCurso: number;
     estatus_curso: boolean;
     fk_user_create: number;
     fk_user_update: number;
