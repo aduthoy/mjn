@@ -19,6 +19,7 @@ export class AdmPersonalComponent implements OnInit {
   constructor(private personalsvr: PersonalService, private dialog: MatDialog, public msgDialog: MatDialog) {
 
     this.personalgridOptions = <GridOptions>{
+      checkboxSelection: true,
       rowSelection: 'single',
       enableFilter: true,
       enableSorting: true,

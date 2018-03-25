@@ -65,6 +65,11 @@
   border-top: 3px solid #EA3592;
 }
 
+.itweb-inner-form button mat-checkbox input mat-select{
+  font-size: 12px;
+  font-weight: normal;
+}
+
 .itweb-maincontent {
   align-content: center;
 }
@@ -96,3 +101,46 @@
   background-color: rgba(234, 53, 146, 0.5);
 }
 
+.it-web-table-container {
+  border: 1px solid lightpink;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 2px;
+  vertical-align: top;
+}
+
+.it-web-table-container-section-title {
+  font-size: 18px;
+  color: #EA3592;
+}
+
+/*.itweb-det-cursos {
+  font-weight: lighter;
+  color: hotpink;
+}*/
+.itweb-tablerow-style {
+  border-bottom: 1px dotted lightpink;
+}
+
+.itweb-det-etiquetas {
+  color: deeppink;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.itweb-det-campos {
+  font-size: 12px;
+}
+
+.itweb-tool-bar {
+  width: 100%;
+  background: lightgray;
+  border-radius: 5px;
+  /*color: #fff;
+  font-size: 14px;
+  font-weight: lighter;*/
+  padding: 5px;
+  margin-bottom: 10px;
+}

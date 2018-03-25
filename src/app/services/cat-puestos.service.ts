@@ -24,8 +24,9 @@ export class CatPuestosService {
     return this.currPuesto;
   }
 
+
   public getAllPuestos() {
-    return this.http.get(this.url).toPromise();
+    return this.http.get('http://localhost:8000/api/puestos').toPromise();
   }
 
   public getAllPuestosByArea(area: any) {

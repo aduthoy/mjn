@@ -23,7 +23,7 @@ export class PersonalService {
   }
 
 
-  public  getPersonalById(id: string) {
+  public getPersonalById(id: string) {
     return this.http.get('http://localhost:8000/api/personal/' + id).toPromise();
   }
 
@@ -39,5 +39,13 @@ export class PersonalService {
 
   public deletePersonal(personal: Personal) {
     return this.http.delete('http://localhost:8000/api/personal/' + personal.id, {headers: this.headers}).toPromise();
+  }
+
+  public getPersonalByArea(id: number) {
+    return this.http.get('http://localhost:8000/api/personal/' + id + '/personal').toPromise();
+  }
+
+  public getPersonalByPuesto(id: number) {
+    return this.http.get('http://localhost:8000/api/personalpuesto/' + id + '/personal').toPromise();
   }
 }

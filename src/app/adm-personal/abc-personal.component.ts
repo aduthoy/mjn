@@ -45,6 +45,7 @@ export class AbcPersonalComponent implements OnInit {
   }
 
   onAceptar() {
+    console.log('empleado a dar de alta =', this.currEmpleado);
 
     if (this.data.accion === 'Alta de Personal') {
       this.svrPersonal.postPersonal(this.currEmpleado).then();

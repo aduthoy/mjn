@@ -70,6 +70,10 @@ import { AdmPersonalComponent } from './adm-personal/adm-personal.component';
 import {PersonalService} from './services/personal.service';
 import { AbcPersonalComponent } from './adm-personal/abc-personal.component';
 import { RelcapgenAreaspuestosComponent } from './relcapgen-areaspuestos/relcapgen-areaspuestos.component';
+import { ProgramaCursosGeneralComponent } from './programa-cursos-general/programa-cursos-general.component';
+import {TrainingDatesService} from './services/training-dates.service';
+import { ProgramaCursosEspecificosComponent } from './programa-cursos-especificos/programa-cursos-especificos.component';
+import { ProgramaPdmsComponent } from './programa-pdms/programa-pdms.component';
 
 
 const appRouter: Routes = [
@@ -81,7 +85,9 @@ const appRouter: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'cat-areas-puestos', component: CatAreasPuestosComponent},
   {path: 'adm-personal', component: AdmPersonalComponent},
-  {path: 'relcapgen-aareaspuestos', component: RelcapgenAreaspuestosComponent}
+  {path: 'programa-cursos-general', component: ProgramaCursosGeneralComponent},
+  {path: 'programa-cursos-especificos', component: ProgramaCursosEspecificosComponent},
+  {path: 'programa-pdms', component: ProgramaPdmsComponent}
 ];
 
 @NgModule({
@@ -103,7 +109,10 @@ const appRouter: Routes = [
     AbcPuestosComponent,
     AdmPersonalComponent,
     AbcPersonalComponent,
-    RelcapgenAreaspuestosComponent
+    RelcapgenAreaspuestosComponent,
+    ProgramaCursosGeneralComponent,
+    ProgramaCursosEspecificosComponent,
+    ProgramaPdmsComponent
   ],
   imports: [
     BrowserModule,
@@ -162,6 +171,7 @@ const appRouter: Routes = [
     CatPdmService, CatAreasService, CatEstatusService,
     CatStatusService, CatProcesosService, CatPropsService,
     CatPropsService, CatCursosGeneralService, CatCursosEspecificosService, CatPuestosService, PersonalService,
+    TrainingDatesService,
   ]
 
 })

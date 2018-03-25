@@ -50,7 +50,7 @@ export class FrmCapPdmComponent implements OnInit {
   constructor (private catstatus: CatStatusService, private catprops: CatPropsService,
                private catareas: CatAreasService, private catestatus: CatEstatusService, private catprocesos: CatProcesosService,
                private matDialogRef: MatDialogRef<FrmCapPdmComponent>,
-               @Inject(MAT_DIALOG_DATA) public data: any, private catpdmservice: CatPdmService){
+               @Inject(MAT_DIALOG_DATA) public data: any, private catpdmservice: CatPdmService) {
 
     console.log('Contructor de la FRM_CURSO con data = ', data);
 

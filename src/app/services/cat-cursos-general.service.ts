@@ -24,8 +24,8 @@ export class CatCursosGeneralService {
     return this.http.get('http://localhost:8000/api/generaltrainings').toPromise();
   }
 
-  public  getCursoCapGeneralById(id: string) {
-    return this.http.get('http://www.it-web.mx:3000/catcursosgeneral/?idCurso=' + id).toPromise();
+  public  getCursoCapGeneralById(id: number) {
+    return this.http.get('http://localhost:8000/api/generaltrainings/' + id).toPromise();
   }
 
   public postCursoGeneral(curso: CatCapGeneral) {
@@ -33,7 +33,8 @@ export class CatCursosGeneralService {
   }
 
   public putCursoGeneral(curso: CatCapGeneral) {
-    return this.http.put('http://localhost:8000/api/generaltrainings/' + curso.id, JSON.stringify(curso), {headers: this.headers}).toPromise();
+    return this.http.put('http://localhost:8000/api/generaltrainings/' + curso.id, JSON.stringify(curso),
+      {headers: this.headers}).toPromise();
   }
 
   public deleteCursoGenera(curso: CatCapGeneral) {

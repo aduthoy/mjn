@@ -24,16 +24,18 @@ export class CatCursosEspecificosService {
     return this.http.get('http://localhost:8000/api/specifctrainings').toPromise();
   }
 
-  public getCursoEspecificoById(id: string) {
+  public getCursoEspecificoById(id: number) {
     return this.http.get('http://localhost:8000/api/specifctrainings/' + id).toPromise();
   }
 
   public postCursoEspecifico(curso: CatCapEspecifica) {
-    return this.http.post('http://localhost:8000/api/specifctrainings', JSON.stringify(curso), { headers: this.headers }).toPromise();
+    return this.http.post('http://localhost:8000/api/specifctrainings', JSON.stringify(curso),
+      { headers: this.headers }).toPromise();
   }
 
   public putCursoEspecifico(curso: CatCapEspecifica) {
-    return this.http.put('http://localhost:8000/api/specifctrainings/' + curso.id, JSON.stringify(curso), {headers: this.headers}).toPromise();
+    return this.http.put('http://localhost:8000/api/specifctrainings/' + curso.id, JSON.stringify(curso),
+      {headers: this.headers}).toPromise();
   }
 
   public deleteCursoEspecifico(curso: CatCapEspecifica) {

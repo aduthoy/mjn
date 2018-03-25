@@ -22,7 +22,7 @@ export class CatPdmService {
     return this.http.get('http://localhost:8000/api/pdms').toPromise();
   }
 
-  public  getPdmById(id: string) {
+  public  getPdmById(id: number) {
     return this.http.get('http://localhost:8000/api/pdms/' + id).toPromise();
   }
 
@@ -36,5 +36,9 @@ export class CatPdmService {
 
   public deletePdm(curso: Catpdms) {
     return this.http.delete('http://localhost:8000/api/pdms/' + curso.id, {headers: this.headers}).toPromise();
+  }
+
+  public getAllPdmsByArea(areaId: number) {
+    return this.http.get('http://localhost:8000/api/pdms/getAllPdmsByArea/' + areaId).toPromise();
   }
 }
