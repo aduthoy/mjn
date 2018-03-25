@@ -1,0 +1,126 @@
+<mat-card class="itweb-inner-form">
+  <mat-card-title style="text-align: center;">
+    <span>{{titulo}}</span>
+    <!--    <br>
+        <span style="font-size: small">{{data.accion}}</span>-->
+  </mat-card-title>
+  <mat-card-content >
+    <form>
+      <table style="width: 100%;">
+        <tr>
+          <td class="it-web-table-container" style="width: 20%;">
+            <p class="it-web-table-container-section-title">Información del Curso:</p>
+            <div class="itweb-tool-bar mat-elevation-z2">
+              <mat-form-field style="width: 100%;">
+                <mat-select placeholder="Curso" [(ngModel)]="currCurso.id" name="curso" (selectionChange)="getInfoCurso()">
+                  <mat-option *ngFor="let curso of cursos" [value] = "curso.id">
+                    {{ curso.nombre_curso}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <br>
+            <table style="width: 100%">
+              <tr >
+                <td class="itweb-det-etiquetas itweb-tablerow-style" width="30%">Cve Curso:</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{currCurso.cve_curso}}</td>
+              </tr>
+              <tr>
+                <td class="itweb-det-etiquetas itweb-tablerow-style">Tema:</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{currCurso.tema_curso}}</td>
+              </tr>
+              <tr>
+                <td class="itweb-det-etiquetas itweb-tablerow-style">Area Resp:</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{currCurso.area_imparte_curso}}</td>
+              </tr>
+              <tr>
+                <td class="itweb-det-etiquetas itweb-tablerow-style">Instructor:</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{currCurso.instructor_curso}}</td>
+              </tr>
+              <tr>
+                <td class="itweb-det-etiquetas itweb-tablerow-style">Duración:</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{currCurso.duracionCurso}}</td>
+              </tr>
+              <tr>
+                <td class="itweb-det-etiquetas itweb-tablerow-style">Estatus:</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{(currCurso.estatus_curso === 1) ? 'Activo' : 'Inactivo'}}</td>
+              </tr>
+            </table>
+          </td>
+          <td class="it-web-table-container" style="width: 30%;">
+            <p class="it-web-table-container-section-title">Fechas y Lugares:</p>
+            <div class="itweb-tool-bar mat-elevation-z2">
+              <mat-form-field style="width: 90px;">
+                <input type="text" matInput placeholder="Fecha" [(ngModel)]="currTrainingDate.initial_date" name="fecha_programada" [matDatepicker]="picker" [disabled]="!currCurso.estatus_curso">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field>
+                <input type="text" matInput placeholder="Lugar" [(ngModel)]="currTrainingDate.location" name="lugar" [disabled]="!currCurso.estatus_curso">
+              </mat-form-field>
+              <hr>
+              <mat-checkbox [(ngModel)]="currTrainingDate.estatus" name="trainingDate_activo" aria-checked="true">Activo</mat-checkbox>
+              <button type="button" mat-button [disabled]="!currCurso.estatus_curso" (click)="addDate()" color="accent">
+                <i class="material-icons">event_available</i>Agregar/Modificar
+              </button>
+              <!--<button type="button" mat-icon-button [disabled]="!currCurso.estatus_curso" (click)="deleteDate()"><i class="material-icons">indeterminate_check_box</i></button>-->
+            </div>
+            <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-fresh"
+                             id="datesGrid"
+                             rowHeight="18px"
+                             [gridOptions]="datesGrid"
+                             [autoGroupColumnDef]="datesGrid.columnDefs"
+                             [rowData]="datesGrid.rowData"
+                             (selectionChanged)="onSeletedDatesGridRow($event)"
+                             (gridReady)="onDatesGridReady($event)"
+            >
+            </ag-grid-angular>
+          </td>
+          <td class="it-web-table-container" style="width: 50%;">
+            <p class="it-web-table-container-section-title">Participantes:</p>
+            <div class="itweb-tool-bar mat-elevation-z2">
+              <mat-form-field style="width: 120px">
+                <mat-select placeholder="Area" name="area" [disabled]="!currTrainingDate.id" [(ngModel)]="selectedArea"
+                            (selectionChange)="areaChange()">
+                  <mat-option value="0">Todas</mat-option>
+                  <mat-option *ngFor="let area of areas" [value]="area.id">{{area.nombreArea}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field style="width: 120px">
+                <mat-select placeholder="Puesto" name="puesto" [disabled]="!currTrainingDate.id" [(ngModel)]="selectedPuesto"
+                            (selectionChange)="puestoChange()">
+                  <mat-option value="0">Todos</mat-option>
+                  <mat-option *ngFor="let puesto of puestos" [value]="puesto.id">{{puesto.nombrePuesto}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field style="width: 250px;">
+                <mat-select placeholder="Empleado" name="empleado" [disabled]="!currTrainingDate.id" [(ngModel)]="selectedEmpleado">
+                  <mat-option value="0">Todos</mat-option>
+                  <mat-option *ngFor="let empleado of empleados" [value]="empleado.id">{{empleado.nombreEmpleado}} {{empleado.apellidoPaterno}}
+                    {{empleado.apellidoMaterno}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <hr>
+              <button type="button" mat-button [disabled]="!empleadosReady" (click)="AddEmployee()" color="accent">
+                <i class="material-icons md-18">add_circle_outline</i> Agregar
+              </button>
+              <button type="button" mat-button [disabled]="!rowselected" (click)="DelEmployee()" color="accent">
+                <i class="material-icons md-18">delete</i> Eliminar
+              </button>
+            </div>
+            <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-fresh"
+                             id="employesGrid"
+                             rowHeight="18px"
+                             [gridOptions]="employesGrid"
+                             [autoGroupColumnDef]="employesGrid.columnDefs"
+                             [rowData]="employesGrid.rowData"
+                             (selectionChanged)="onSeletedRowEmployesGrid($event)"
+                             (gridReady)="onEmployeesGridReady($event)"
+            >
+            </ag-grid-angular>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
