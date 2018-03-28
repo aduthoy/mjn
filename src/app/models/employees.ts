@@ -14,4 +14,5 @@ export class Employees {
   updated_at: string;
   area: CatAreas;
   puesto: Puestos;
+  nombre: string;
 }

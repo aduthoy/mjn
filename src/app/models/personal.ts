@@ -9,4 +9,5 @@ export class Personal {
   nombreArea: string;
   nomberPuesto: string;
   activo: boolean;
+  nombre: string;
 }

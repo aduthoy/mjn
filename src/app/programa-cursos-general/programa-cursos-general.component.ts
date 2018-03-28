@@ -11,6 +11,8 @@ import {CatAreas} from '../models/cat-areas';
 import {Puestos} from '../models/puestos';
 import {Personal} from '../models/personal';
 import {Employees} from '../models/employees';
+import {FormControl} from '@angular/forms';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-programa-cursos-general',
@@ -22,11 +24,12 @@ export class ProgramaCursosGeneralComponent implements OnInit {
   public cursos: CatCapGeneral[];
   public currCurso: CatCapGeneral;
   public currTrainingDate: TrainingDates = new TrainingDates();
+  public editCurrTrainingDate: TrainingDates = new TrainingDates();
   public datesGrid: GridOptions;
   public employesGrid: GridOptions;
   public areas: CatAreas[];
   public puestos: Puestos[];
-  public empleados: Personal[];
+  public empleados: Personal[] = [];
 
   public selectedEmpleado: number;
   public selectedArea: number;
@@ -34,8 +37,12 @@ export class ProgramaCursosGeneralComponent implements OnInit {
   public empleadosReady = false;
   public rowselected = false;
   public empleados_sel: Employees[];
+  public selectedpcg = false;
 
   private empleadosId: number[] = [];
+
+  public searchField: FormControl;
+  public listaEmp: Personal[];
 
   public titulo = 'Programación de Cursos en General';
 
@@ -55,7 +62,7 @@ export class ProgramaCursosGeneralComponent implements OnInit {
     };
 
     this.datesGrid.columnDefs = [
-      {headerName: 'Est.', field: 'estatus', width: 70},
+      // {headerName: 'Est.', field: 'estatus', width: 70},
       {headerName: 'Qx', field: 'quarter', width: 60},
       {headerName: 'Fecha', field: 'initial_date', width: 120},
       {headerName: 'Lugar', field: 'location', width: 250}
@@ -82,6 +89,19 @@ export class ProgramaCursosGeneralComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchField = new FormControl();
+    this.searchField.disable();
+
+    this.searchField.valueChanges
+      .debounceTime(500)
+      .distinctUntilChanged()
+      .subscribe( nom => {
+        this.filterEmps (nom);
+      });
+  }
+
+  public filterEmps(nombre_filtrar: string) {
+    this.listaEmp = this.empleados.filter( nombre => nombre.nombre.toLocaleLowerCase().indexOf(nombre_filtrar.toLowerCase()) !== -1);
   }
 
   onDatesGridReady(evento: any) {
@@ -99,6 +119,7 @@ export class ProgramaCursosGeneralComponent implements OnInit {
       console.log(this.currCurso);
       this.svrDates.getAllTrainingDatesByGeneralTraininigId(this.currCurso.id).then( (b: TrainingDates[]) => {
         this.datesGrid.rowData = b;
+        this.selectedpcg = true;
       });
     });
   }
@@ -111,15 +132,21 @@ export class ProgramaCursosGeneralComponent implements OnInit {
     if (this.currCurso === null || this.currCurso === undefined) {
       // TODO: mostrar dialogo que tiene que seleccionar un curos y que esté activo
     } else {
-      this.currTrainingDate.general_training_id = this.currCurso.id;
-      console.log('Grabando la fecha con la siguiente info: ', this.currTrainingDate);
-      this.svrDates.postTrainingDate(this.currTrainingDate).then( (a: any) => {
+      this.editCurrTrainingDate.general_training_id = this.currCurso.id;
+      console.log('Grabando la fecha con la siguiente info: ', this.editCurrTrainingDate);
+      this.svrDates.postTrainingDate(this.editCurrTrainingDate).then( (a: any) => {
+        console.log('Curso Modificado ', a);
         this.svrDates.getAllTrainingDatesByGeneralTraininigId(this.currCurso.id).then((b: TrainingDates[]) => {
           this.datesGrid.rowData = b;
         });
       });
     }
-    this.currTrainingDate = new TrainingDates();
+    this.editCurrTrainingDate = new TrainingDates();
+    console.log('info de EditCurrTrainingDate ', this.editCurrTrainingDate);
+  }
+
+  public editDate() {
+    this.editCurrTrainingDate = this.currTrainingDate;
   }
 
   public deleteDate() {
@@ -127,13 +154,25 @@ export class ProgramaCursosGeneralComponent implements OnInit {
   }
 
   public onSeletedDatesGridRow(event: any) {
+    console.log('Se selecciono una fecha ', event.api.getSelectedRows()[0]);
     this.currTrainingDate = event.api.getSelectedRows()[0];
     this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (a: Employees[]) => {
       this.employesGrid.rowData = a;
       console.log('Info Empleados > ', a);
+      this.searchField.enable();
     });
     this.rowselected = false;
   }
+
+
+  public onChangeSelectedDatesGridRow(event: any) {
+    const lastTrainingDate = event.api.getSelectedRows()[0];
+    console.log('Date Anterior ', lastTrainingDate);
+    console.log('Curr Date ', this.currTrainingDate);
+    this.editCurrTrainingDate = new TrainingDates();
+  }
+
+
   public onSeletedRowEmployesGrid(evento: any) {
     this.empleados_sel = evento.api.getSelectedRows();
     if (this.empleados_sel.length > 0) {
@@ -144,13 +183,17 @@ export class ProgramaCursosGeneralComponent implements OnInit {
     console.log(this.empleados_sel, this.empleados_sel.length);
   }
 
+
+
   public areaChange() {
     console.log('Selected Area =', this.selectedArea);
+    this.searchField.setValue('');
     if (this.selectedArea > 0 ) {
       this.svrPuestos.getAllPuestosByArea(this.selectedArea).then( (a: Puestos[]) => {this.puestos = a; });
       console.log('Pustos ', this.puestos);
       this.svrPersonal.getPersonalByArea(this.selectedArea).then((b: Personal[]) => {
         this.empleados = b;
+        this.listaEmp = b;
         if (this.empleados.length > 0) {
           this.empleadosReady = true;
         } else {
@@ -163,6 +206,7 @@ export class ProgramaCursosGeneralComponent implements OnInit {
       this.svrPuestos.getAllPuestos().then( (a: Puestos[]) => { this.puestos = a; });
       this.svrPersonal.getAllPersonal().then( (b: Personal[]) => {
         this.empleados = b;
+        this.listaEmp = b;
         console.log('Validando la cantidad de Empleados: ', this.empleados.length);
         if (this.empleados.length > 0) {
           this.empleadosReady = true;
@@ -175,9 +219,11 @@ export class ProgramaCursosGeneralComponent implements OnInit {
 
   public puestoChange() {
     console.log('Selected Puesto = ', this.selectedPuesto);
+    this.searchField.setValue('');
     if (this.selectedPuesto > 0) {
       this.svrPersonal.getPersonalByPuesto(this.selectedPuesto).then((a: Personal[]) => {
         this.empleados = a;
+        this.listaEmp = a;
         if (this.empleados.length > 0) {
           this.empleadosReady = true;
         } else {
@@ -187,6 +233,7 @@ export class ProgramaCursosGeneralComponent implements OnInit {
     } else if (this.selectedArea > 0) {
       this.svrPersonal.getPersonalByArea(this.selectedArea).then( (a: Personal []) => {
         this.empleados = a;
+        this.listaEmp = a;
         if (this.empleados.length > 0) {
           this.empleadosReady = true;
         } else {
@@ -196,6 +243,7 @@ export class ProgramaCursosGeneralComponent implements OnInit {
     } else {
       this.svrPersonal.getAllPersonal().then( (a: Personal[]) => {
         this.empleados = a;
+        this.listaEmp = a;
         if (this.empleados.length > 0) {
           this.empleadosReady = true;
         } else {
@@ -207,28 +255,33 @@ export class ProgramaCursosGeneralComponent implements OnInit {
 
   public AddEmployee() {
     console.log(this.selectedArea, this.selectedPuesto, this.selectedEmpleado, this.empleados.length);
-    for (let i = 0; i < this.empleados.length; i++) {
+    this.searchField.setValue('');
+    /*for (let i = 0; i < this.empleados.length; i++) {
       this.empleadosId.push(this.empleados[i].id);
-    }
-    console.log('Arreglo de Empleados = ', this.empleados);
-    console.log('SelectedEmpleadoId =', this.selectedEmpleado);
-    if (this.selectedEmpleado === undefined || this.selectedEmpleado <= 0) {
-      console.log('Deberan agregarse todos los empleados del combo');
-      this.svrDates.addEmployees(this.empleados, this.currTrainingDate.id).then( (a: any) => {
-        console.log('Employees attached', a);
-        this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (b: Employees[]) => {
-          this.employesGrid.rowData = b;
-        });
-      });
+    }*/
+
+    if (this.listaEmp.length === 0) {
+      alert('Ningun empleado seleccionado');
     } else {
-      const empleado = this.empleados.find( (empleado: Personal) => empleado.id === this.selectedEmpleado);
-      console.log('Agregar solo el empleado seleccionado ', empleado);
-      this.svrDates.addOneEmployee(empleado, this.currTrainingDate.id).then( (a: any) => {
-        console.log('Employees attached', a);
-        this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (b: Employees[]) => {
-          this.employesGrid.rowData = b;
+      if (this.listaEmp.length > 1) {
+        console.log('aggregar varios empleados');
+        this.svrDates.addEmployees(this.listaEmp, this.currTrainingDate.id).then( (a: any) => {
+          console.log('Employees attached', a);
+          this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (b: Employees[]) => {
+            this.employesGrid.rowData = b;
+          });
         });
-      });
+      } else {
+        console.log('Agregar el empleado id = ', this.listaEmp[0].id);
+        const empleado = this.listaEmp[0];
+        console.log('Agregar solo el empleado seleccionado ', empleado);
+        this.svrDates.addOneEmployee(empleado, this.currTrainingDate.id).then( (a: any) => {
+          console.log('Employees attached', a);
+          this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (b: Employees[]) => {
+            this.employesGrid.rowData = b;
+          });
+        });
+      }
     }
     this.selectedEmpleado = 0;
   }

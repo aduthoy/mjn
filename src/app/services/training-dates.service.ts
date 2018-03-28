@@ -30,6 +30,7 @@ export class TrainingDatesService {
   }
 
   public postTrainingDate(training: TrainingDates) {
+    console.log('INFORMACION A GUARDAR =====> ', training);
     return this.http.post('http://localhost:8000/api/trainingdate', JSON.stringify(training),
       {headers: this.headers}).toPromise();
   }

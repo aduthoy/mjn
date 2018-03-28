@@ -74,6 +74,7 @@ import { ProgramaCursosGeneralComponent } from './programa-cursos-general/progra
 import {TrainingDatesService} from './services/training-dates.service';
 import { ProgramaCursosEspecificosComponent } from './programa-cursos-especificos/programa-cursos-especificos.component';
 import { ProgramaPdmsComponent } from './programa-pdms/programa-pdms.component';
+import { PruebasControlesComponent } from './pruebas-controles/pruebas-controles.component';
 
 
 const appRouter: Routes = [
@@ -112,7 +113,8 @@ const appRouter: Routes = [
     RelcapgenAreaspuestosComponent,
     ProgramaCursosGeneralComponent,
     ProgramaCursosEspecificosComponent,
-    ProgramaPdmsComponent
+    ProgramaPdmsComponent,
+    PruebasControlesComponent
   ],
   imports: [
     BrowserModule,
