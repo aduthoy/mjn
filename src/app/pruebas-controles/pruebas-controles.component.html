@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-title>
+    <h3>Autocomplete</h3>
+  </mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <mat-select name="area" [(ngModel)]="id_area" (selectionChange)="getEmpsByArea()">
+          <mat-option value="0">Todas</mat-option>
+          <mat-option *ngFor="let area of areas" value="{{area.id}}">{{area.nombreArea}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="width: 30%;">
+        <input matInput placeholder="Nombre Empleado" aria-label="Nombre" [matAutocomplete]="auto" [formControl]="searchField">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let empleado of listaEmp" [value]="empleado.nombre"> <!--.concat(' ').concat(empleado.apellidoPaterno)
+              .concat(' ').concat(empleado.apellidoMaterno)">-->
+            {{empleado.nombre}}
+          </mat-option>
+        </mat-autocomplete>
+        <!--</mat-select>-->
+      </mat-form-field>
+      <button type="button" mat-button  (click)="AddEmployee()" color="accent">
+        <i class="material-icons md-18">add_circle_outline</i> Agregar
+      </button>
+    </form>
+    <!--<ul>
+      <li *ngFor="let emp of listaEmp"> {{ emp.nombreEmpleado }}</li>
+    </ul>-->
+  </mat-card-content>
+</mat-card>

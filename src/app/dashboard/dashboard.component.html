@@ -1,0 +1,175 @@
+<div style="min-width: 850px">
+<mat-grid-list [cols]="2" rowHeight="300px">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-card style="min-width: 350px;">
+      <mat-card-header class="itweb-card-header">
+        <mat-card-title>
+          <h2>
+            <i class="material-icons">next_week</i>
+            Próximos a Vencer
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-content>
+        <table class="itweb-table-widget-dash">
+          <tr>
+            <td class="mat-elevation-z1">
+              <h4>General</h4>
+              <div>
+                <span>{{res_proxavencer.general}}</span>
+              </div>
+            </td>
+            <td class="mat-elevation-z1">
+              <h4>Especificos</h4>
+              <div>
+                <span>{{res_proxavencer.especifico}}</span>
+              </div>
+            </td>
+            <td class="mat-elevation-z1">
+              <h4>Procesos</h4>
+              <div>
+                <span>{{res_proxavencer.pdm}}</span>
+            </div>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-footer style="margin: 5px; padding: 5px">
+        <div style="text-align: right">
+          <a [routerLink]="['/mas-informacion']" style="text-decoration: none; color: deeppink; font-weight: lighter"><span>Mas Información --></span></a>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-card style="min-width: 350px;">
+      <mat-card-header class="itweb-card-header">
+        <mat-card-title>
+          <h2>
+            <i class="material-icons">date_range</i>
+            Programados
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-content>
+        <table class="itweb-table-widget-dash">
+          <tr>
+            <td class="mat-elevation-z1">
+              <h4>General</h4>
+              <div>
+                <span>{{this.res_programados.general}}</span>
+              </div>
+            </td>
+            <td class="mat-elevation-z1">
+              <h4>Especificos</h4>
+              <div>
+                <span>{{this.res_programados.especifico}}</span>
+              </div>
+            </td>
+            <td class="mat-elevation-z1">
+              <h4>Procesos</h4>
+              <div>
+                <span>{{this.res_programados.pdm}}</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-footer style="margin: 5px; padding: 5px">
+        <div style="text-align: right">
+          <a [routerLink]="['/mas-informacion-programados']" style="text-decoration: none; color: deeppink; font-weight: lighter"><span>Mas Información --></span></a>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-card style="min-width: 350px;">
+      <mat-card-header class="itweb-card-header">
+        <mat-card-title>
+          <h2>
+            <i class="material-icons">done_all</i>
+            Cursados
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-content>
+        <table class="itweb-table-widget-dash">
+          <tr>
+            <td class="mat-elevation-z1">
+              <h4>General</h4>
+              <div>
+                <span>{{this.res_cursados.general}}</span>
+              </div>
+            </td>
+            <td class="mat-elevation-z1">
+              <h4>Especificos</h4>
+              <div>
+                <span>{{this.res_cursados.especifico}}</span>
+              </div>
+            </td>
+            <td class="mat-elevation-z1">
+              <h4>Procesos</h4>
+              <div>
+                <span>{{this.res_cursados.pdm}}</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-footer style="margin: 5px; padding: 5px">
+        <div style="text-align: right">
+          <a [routerLink]="['/mas-informacion-cursados']" style="text-decoration: none; color: deeppink; font-weight: lighter"><span>Mas Información --></span></a>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <!--<mat-card style="min-width: 350px;">
+      <mat-card-header class="itweb-card-header">
+        <mat-card-title>
+          <h2>
+            <i class="material-icons">new_releases</i>
+            Avisos
+          </h2>
+        </mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-content>
+        <table class="itweb-table-widget-dash">
+          <tr>
+            <td>
+            </td>
+            <td class="mat-elevation-z1">
+              <div>
+                <span>10</span>
+              </div>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-footer style="margin: 5px; padding: 5px">
+        <div style="text-align: right">
+          <a href="#" style="text-decoration: none; color: deeppink; font-weight: lighter"><span>Mas Información -></span></a>
+        </div>
+      </mat-card-footer>
+    </mat-card>-->
+  </mat-grid-tile>
+</mat-grid-list>
+</div>

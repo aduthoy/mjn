@@ -1,0 +1,47 @@
+<mat-card class="itweb-inner-form" style="min-width: 1024px;">
+  <mat-card-title style="text-align: center;">
+    <i class="material-icons">done_all</i>
+    <span>{{titulo}}</span>
+  </mat-card-title>
+  <mat-card-content >
+    <mat-tab-group color="accent">
+      <mat-tab label="Entenamiento General">
+        <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-fresh"
+                         id="generalGrid"
+                         rowHeight="18px"
+                         [gridOptions]="generalGrid"
+                         [autoGroupColumnDef]="generalGrid.columnDefs"
+                         [rowData]="generalGrid.rowData"
+        >
+        </ag-grid-angular>
+      </mat-tab>
+      <mat-tab label="Entrenamiento Especifico">
+        <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-fresh"
+                         id="specificGrid"
+                         rowHeight="18px"
+                         [gridOptions]="specificGrid"
+                         [autoGroupColumnDef]="specificGrid.columnDefs"
+                         [rowData]="specificGrid.rowData"
+        >
+        </ag-grid-angular>
+      </mat-tab>
+      <mat-tab label="Procedimientos">
+        <div>
+          <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-fresh"
+                           id="pdmGrid"
+                           rowHeight="18px"
+                           [gridOptions]="pdmGrid"
+                           [autoGroupColumnDef]="pdmGrid.columnDefs"
+                           [rowData]="pdmGrid.rowData"
+          >
+          </ag-grid-angular>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+  <mat-card-footer style="margin: 5px; padding: 5px">
+    <div style="text-align: left">
+      <a [routerLink]="['/dashboard']" style="text-decoration: none; color: deeppink; font-weight: lighter"><span><- Regresar</span></a>
+    </div>
+  </mat-card-footer>
+</mat-card>
