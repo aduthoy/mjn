@@ -88,4 +88,56 @@ export class TrainingDatesService {
     return this.http.get('http://localhost:8000/api/pdms/' + id + '/trainingdate').toPromise();
   }
 
+  /**
+   * Metodos de consulta del Dashboard
+   */
+
+  public getProximosaVencerByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProximosaVencerByUserId/' + id).toPromise();
+  }
+
+  public getCursadosByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getCursadosByUserId/' + id).toPromise();
+  }
+
+  public getProgramadosByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProgramadosByUserId/' + id).toPromise();
+  }
+
+  public getProximosaVencerGeneralDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProximosaVencerGeneralDetalleByUserId/' + id).toPromise();
+  }
+
+  public getProximosaVencerEspecificoDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProximosaVencerEspecificoDetalleByUserId/' + id).toPromise();
+  }
+
+  public getProximosaVencerPDMDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProximosaVencerPDMDetalleByUserId/' + id).toPromise();
+  }
+
+  public getProgramadosGeneralDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProgramadosGeneralDetalleByUserId/' + id).toPromise();
+  }
+
+  public getProgramadosEspecificoDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProgramadosEspecificoDetalleByUserId/' + id).toPromise();
+  }
+
+  public getProgramadosPDMDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getProgramadosPDMDetalleByUserId/' + id).toPromise();
+  }
+
+  public getCursadosGeneralDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getCursadosGeneralDetalleByUserId/' + id).toPromise();
+  }
+
+  public getCursadosEspecificoDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getCursadosEspecificoDetalleByUserId/' + id).toPromise();
+  }
+
+  public getCursadosPDMDetalleByUserId(id: number) {
+    return this.http.get('http://localhost:8000/api/dashboard/getCursadosPDMDetalleByUserId/' + id).toPromise();
+  }
+
 }

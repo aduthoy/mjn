@@ -75,10 +75,14 @@ import {TrainingDatesService} from './services/training-dates.service';
 import { ProgramaCursosEspecificosComponent } from './programa-cursos-especificos/programa-cursos-especificos.component';
 import { ProgramaPdmsComponent } from './programa-pdms/programa-pdms.component';
 import { PruebasControlesComponent } from './pruebas-controles/pruebas-controles.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MasInformacionComponent } from './mas-informacion/mas-informacion.component';
+import { MasInformacionProgramadosComponent } from './mas-informacion-programados/mas-informacion-programados.component';
+import { MasInformacionCursadosComponent } from './mas-informacion-cursados/mas-informacion-cursados.component';
 
 
 const appRouter: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', redirectTo: '', pathMatch: 'full'},
   {path: 'cfg-cap-pdm', component: CfgCapPdmComponent},
   {path: 'cfg-cap-especifica', component: CfgCapEspecificaComponent},
   {path: 'cfg-cap-general', component: CfgCapGeneralComponent},
@@ -88,7 +92,11 @@ const appRouter: Routes = [
   {path: 'adm-personal', component: AdmPersonalComponent},
   {path: 'programa-cursos-general', component: ProgramaCursosGeneralComponent},
   {path: 'programa-cursos-especificos', component: ProgramaCursosEspecificosComponent},
-  {path: 'programa-pdms', component: ProgramaPdmsComponent}
+  {path: 'programa-pdms', component: ProgramaPdmsComponent},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'mas-informacion', component: MasInformacionComponent},
+  {path: 'mas-informacion-programados', component: MasInformacionProgramadosComponent},
+  {path: 'mas-informacion-cursados', component: MasInformacionCursadosComponent}
 ];
 
 @NgModule({
@@ -114,7 +122,11 @@ const appRouter: Routes = [
     ProgramaCursosGeneralComponent,
     ProgramaCursosEspecificosComponent,
     ProgramaPdmsComponent,
-    PruebasControlesComponent
+    PruebasControlesComponent,
+    DashboardComponent,
+    MasInformacionComponent,
+    MasInformacionProgramadosComponent,
+    MasInformacionCursadosComponent
   ],
   imports: [
     BrowserModule,

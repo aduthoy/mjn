@@ -4,7 +4,7 @@
 </div>-->
 <!--<img src="../assets/images/meadjohnson.jpg" width="300px">-->
 <div class="container-fluid">
-  <mat-toolbar color="secondary" class="mat-elevation-z8">
+  <mat-toolbar color="secondary" class="mat-elevation-z8" style="min-width: 850px">
     <mat-toolbar-row>
       <img src="../assets/RB-logo.png" width="110px;">
       <span>Capacitación</span>
@@ -44,10 +44,8 @@
         <a mat-menu-item [routerLink]="['/programa-cursos-general']">Programación de Cursos en General</a>
         <a mat-menu-item [routerLink]="['/programa-cursos-especificos']">Programación de Cursos Especificos</a>
         <a mat-menu-item [routerLink]="['/programa-pdms']">Programacion de PDMs</a>
-<!--        <hr>
-        <a mat-menu-item [routerLink]="['/']">Adm. Calendarios de Capacitación</a>
- -->
         <hr>
+        <a mat-menu-item [routerLink]="['/dashboard']">Dashboard</a>
         <a mat-menu-item [routerLink]="['/about']">Acerca de...</a>
     </mat-menu>
 
@@ -69,7 +67,8 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="container">
-    <!--<app-pruebas-controles></app-pruebas-controles>-->
+    <!--<app-mas-informacion></app-mas-informacion>-->
+    <!--<app-dashboard></app-dashboard>-->
     <router-outlet></router-outlet>
   </div>
 </div>

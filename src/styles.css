@@ -57,7 +57,7 @@
   -webkit-border-radius: .3rem;
   -moz-border-radius: .3rem;
   border-radius: .3rem;
-  text-shadow: 0 0 .2rem #093b65;
+  text-shadow: 0 0 .1rem #fff;
 }
 
 .itweb-inner-form {
@@ -151,3 +151,35 @@
   padding: 10px;
   margin: 0;
 }
+
+.itweb-card-header {
+  background-color: #f7f7f7;
+  color: #EA3592;
+  border-radius: 5px;
+}
+
+
+.itweb-table-widget-dash{
+  width: 100%;
+}
+
+.itweb-table-widget-dash td {
+  text-align: center;
+  background-color: #f5f5f5;
+  -webkit-border-radius: 5px;
+  moz-border-radius: 5px;
+  border-radius: 5px;
+  font-weight:lighter;
+}
+
+.itweb-table-widget-dash h1, h2, h3, h4, h5, h6 {
+  color: #656466;
+}
+
+
+.itweb-table-widget-dash td span {
+  color: #000000;
+  font-size: 20px;
+  font-weight: normal;
+}
+
