@@ -1,0 +1,37 @@
+<div style="margin-top: 30px">
+  <form (ngSubmit)="regNewUser()" [formGroup]="registerForm" class="mat-background-accent" novalidate>
+    <mat-form-field style="width: 100%;" color="accent">
+      <mat-icon matPrefix style="color: #858585; margin-right: 5px;">person_outline</mat-icon>
+      <input formControlName="employeeName" type="text" matInput name="username" id="username" placeholder="Nombre(s) A. Paterno A. Materno" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 100%;" color="accent">
+      <mat-icon matPrefix style="color: #858585; margin-right: 5px;">credit_card</mat-icon>
+      <input formControlName="employeeId" type="text" matInput name="emloyeeId" id="emloyeeId" placeholder="Numero de Empleado" required>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;" color="accent">
+      <mat-icon matPrefix style="color: #858585; margin-right: 5px;">mail_outline</mat-icon>
+      <input formControlName="email" type="email" matInput name="userid" id="userid" placeholder="email corporativo" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width: 100%; margin-right: 5px;" color="accent">
+      <mat-icon matPrefix style="color: #858585">vpn_key</mat-icon>
+      <input formControlName="password" type="password" matInput name="pass" id="pass" placeholder="Password" required>
+    </mat-form-field>
+    <mat-form-field style="width: 100%; margin-right: 5px;" color="accent">
+      <mat-icon matPrefix style="color: #858585">vpn_key</mat-icon>
+      <input formControlName="confpassword" type="password" matInput name="pass_confirm" id="pass_confirm" placeholder="Confirma Password" required>
+    </mat-form-field>
+    <br>
+    <button type="submit" [disabled]="!registerForm.valid" mat-raised-button="" color="accent"
+     class="mat-elevation-z3" >
+      <i class="material-icons">person_add</i>
+      Registrar
+    </button>
+    <button mat-raised-button="" color="primary">
+      <i class="material-icons">cancel</i>
+      Cancel
+    </button>
+  </form>
+</div>

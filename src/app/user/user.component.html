@@ -1,0 +1,12 @@
+<mat-grid-list [cols]="1" rowHeight="2:1">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-tab-group class="mat-elevation-z8" style="padding: 20px;" color="accent">
+          <mat-tab label="Login">
+            <app-sign-in></app-sign-in>
+          </mat-tab>
+          <mat-tab label="Registro">
+            <app-sign-up></app-sign-up>
+          </mat-tab>
+        </mat-tab-group>
+  </mat-grid-tile>
+</mat-grid-list>
