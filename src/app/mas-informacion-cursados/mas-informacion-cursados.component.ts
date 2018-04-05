@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TrainingDatesService} from '../services/training-dates.service';
 import {GridOptions} from 'ag-grid';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-mas-informacion-cursados',
@@ -14,7 +15,7 @@ export class MasInformacionCursadosComponent implements OnInit {
   public specificGrid: GridOptions;
   public pdmGrid: GridOptions;
 
-  constructor(private svrTrainingDates: TrainingDatesService) {
+  constructor(private svrTrainingDates: TrainingDatesService, private svrlogin: LoginService) {
 
     this.generalGrid = <GridOptions> {
       rowSelection: 'single',
@@ -63,15 +64,15 @@ export class MasInformacionCursadosComponent implements OnInit {
       {headerName: 'Area', field: 'nombreArea', width: 130}
     ];
 
-    this.svrTrainingDates.getCursadosGeneralDetalleByUserId(1).then( (a: any[]) => {
+    this.svrTrainingDates.getCursadosGeneralDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
       this.generalGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getCursadosEspecificoDetalleByUserId(1).then( (a: any[]) => {
+    this.svrTrainingDates.getCursadosEspecificoDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
       this.specificGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getCursadosPDMDetalleByUserId(1).then( (a: any[]) => {
+    this.svrTrainingDates.getCursadosPDMDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
       this.pdmGrid.rowData = a;
     });
 

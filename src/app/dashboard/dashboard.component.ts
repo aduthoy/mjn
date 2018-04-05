@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TrainingDatesService} from '../services/training-dates.service';
 import {DashResumen} from '../models/dash-resumen';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,20 +14,20 @@ export class DashboardComponent implements OnInit {
   res_programados: DashResumen = new DashResumen();
   res_cursados: DashResumen = new DashResumen();
 
-  constructor(private svrDash: TrainingDatesService) {
-    this.svrDash.getProximosaVencerByUserId(1).then( (a: DashResumen) => {
+  constructor(private svrDash: TrainingDatesService, private svrlogin: LoginService) {
+    this.svrDash.getProximosaVencerByUserId(this.svrlogin.userId).then( (a: DashResumen) => {
       this.res_proxavencer = a[0];
       console.log(a);
       console.log('Proximos a vencer ', this.res_proxavencer);
     });
 
-    this.svrDash.getProgramadosByUserId(1).then( (a: DashResumen) => {
+    this.svrDash.getProgramadosByUserId(this.svrlogin.userId).then( (a: DashResumen) => {
       this.res_programados = a[0];
       console.log(a);
       console.log('Proximos a vencer ', this.res_programados);
     });
 
-    this.svrDash.getCursadosByUserId(1).then( (a: DashResumen) => {
+    this.svrDash.getCursadosByUserId(this.svrlogin.userId).then( (a: DashResumen) => {
       this.res_cursados = a[0];
       console.log(a);
       console.log('Proximos a vencer ', this.res_cursados);

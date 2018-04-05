@@ -79,24 +79,30 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MasInformacionComponent } from './mas-informacion/mas-informacion.component';
 import { MasInformacionProgramadosComponent } from './mas-informacion-programados/mas-informacion-programados.component';
 import { MasInformacionCursadosComponent } from './mas-informacion-cursados/mas-informacion-cursados.component';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import {LoginService} from './services/login.service';
+import {AuthGuard} from './auth/auth.guard';
 
 
 const appRouter: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full'},
-  {path: 'cfg-cap-pdm', component: CfgCapPdmComponent},
-  {path: 'cfg-cap-especifica', component: CfgCapEspecificaComponent},
-  {path: 'cfg-cap-general', component: CfgCapGeneralComponent},
-  {path: 'my-grid-application', component: MyGridApplicationComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'cat-areas-puestos', component: CatAreasPuestosComponent},
-  {path: 'adm-personal', component: AdmPersonalComponent},
-  {path: 'programa-cursos-general', component: ProgramaCursosGeneralComponent},
-  {path: 'programa-cursos-especificos', component: ProgramaCursosEspecificosComponent},
-  {path: 'programa-pdms', component: ProgramaPdmsComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'mas-informacion', component: MasInformacionComponent},
-  {path: 'mas-informacion-programados', component: MasInformacionProgramadosComponent},
-  {path: 'mas-informacion-cursados', component: MasInformacionCursadosComponent}
+  {path: '', redirectTo: '/user', pathMatch: 'full'},
+  {path: 'cfg-cap-pdm', component: CfgCapPdmComponent, canActivate: [AuthGuard]},
+  {path: 'cfg-cap-especifica', component: CfgCapEspecificaComponent, canActivate: [AuthGuard]},
+  {path: 'cfg-cap-general', component: CfgCapGeneralComponent, canActivate: [AuthGuard]},
+  {path: 'my-grid-application', component: MyGridApplicationComponent, canActivate: [AuthGuard]},
+  {path: 'about', component: AboutComponent , canActivate: [AuthGuard]},
+  {path: 'cat-areas-puestos', component: CatAreasPuestosComponent , canActivate: [AuthGuard]},
+  {path: 'adm-personal', component: AdmPersonalComponent, canActivate: [AuthGuard]},
+  {path: 'programa-cursos-general', component: ProgramaCursosGeneralComponent, canActivate: [AuthGuard]},
+  {path: 'programa-cursos-especificos', component: ProgramaCursosEspecificosComponent, canActivate: [AuthGuard]},
+  {path: 'programa-pdms', component: ProgramaPdmsComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'mas-informacion', component: MasInformacionComponent, canActivate: [AuthGuard]},
+  {path: 'mas-informacion-programados', component: MasInformacionProgramadosComponent, canActivate: [AuthGuard]},
+  {path: 'mas-informacion-cursados', component: MasInformacionCursadosComponent, canActivate: [AuthGuard]},
+  {path: 'user', component: UserComponent}
 ];
 
 @NgModule({
@@ -126,7 +132,10 @@ const appRouter: Routes = [
     DashboardComponent,
     MasInformacionComponent,
     MasInformacionProgramadosComponent,
-    MasInformacionCursadosComponent
+    MasInformacionCursadosComponent,
+    UserComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -182,10 +191,10 @@ const appRouter: Routes = [
   ],
   bootstrap: [AppComponent],
   providers: [
-    CatPdmService, CatAreasService, CatEstatusService,
+    AuthGuard,CatPdmService, CatAreasService, CatEstatusService,
     CatStatusService, CatProcesosService, CatPropsService,
     CatPropsService, CatCursosGeneralService, CatCursosEspecificosService, CatPuestosService, PersonalService,
-    TrainingDatesService,
+    TrainingDatesService, LoginService,
   ]
 
 })

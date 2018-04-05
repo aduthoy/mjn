@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TrainingDatesService} from '../services/training-dates.service';
 import {GridOptions} from 'ag-grid';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-mas-informacion-programados',
@@ -14,7 +15,7 @@ export class MasInformacionProgramadosComponent implements OnInit {
   public specificGrid: GridOptions;
   public pdmGrid: GridOptions;
 
-  constructor(private svrTrainingDates: TrainingDatesService) {
+  constructor(private svrTrainingDates: TrainingDatesService, private svrlogin: LoginService) {
 
     this.generalGrid = <GridOptions> {
       rowSelection: 'single',
@@ -62,15 +63,15 @@ export class MasInformacionProgramadosComponent implements OnInit {
       {headerName: 'Area', field: 'nombreArea', width: 130}
     ];
 
-    this.svrTrainingDates.getProgramadosGeneralDetalleByUserId(1).then( (a: any[]) => {
+    this.svrTrainingDates.getProgramadosGeneralDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
       this.generalGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getProgramadosEspecificoDetalleByUserId(1).then( (a: any[]) => {
+    this.svrTrainingDates.getProgramadosEspecificoDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
       this.specificGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getProgramadosPDMDetalleByUserId(1).then( (a: any[]) => {
+    this.svrTrainingDates.getProgramadosPDMDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
       this.pdmGrid.rowData = a;
     });
 
