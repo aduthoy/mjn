@@ -52,7 +52,6 @@ export class ProgramaPdmsComponent implements OnInit {
               private svrPersonal: PersonalService) {
 
     this.currCurso = new Catpdms();
-    // this.svrCurso.getAllPdms().then( ( a: Catpdms[] ) => {this.cursos = a; });
     this.svrAreas.getAllCatAreas().then( (a: CatAreas[]) => {
       this.areas = a;
       this.areas_pdm = a;
@@ -121,6 +120,7 @@ export class ProgramaPdmsComponent implements OnInit {
       this.selectedPdm = false;
     });
   }
+
   public getInfoCurso() {
     console.log('Buscando el PDM = ', this.currCurso.id);
     this.svrCurso.getPdmById(this.currCurso.id).then( (a: Catpdms) => {

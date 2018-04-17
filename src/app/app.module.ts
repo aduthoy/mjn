@@ -86,6 +86,7 @@ import {LoginService} from './services/login.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth.interceptor';
 import { CapturaCalificacionesComponent } from './captura-calificaciones/captura-calificaciones.component';
+import { AcreditaProcedimientosComponent } from './acredita-procedimientos/acredita-procedimientos.component';
 
 
 const appRouter: Routes = [
@@ -104,7 +105,8 @@ const appRouter: Routes = [
   {path: 'mas-informacion', component: MasInformacionComponent, canActivate: [AuthGuard]},
   {path: 'mas-informacion-programados', component: MasInformacionProgramadosComponent, canActivate: [AuthGuard]},
   {path: 'mas-informacion-cursados', component: MasInformacionCursadosComponent, canActivate: [AuthGuard]},
-  {path: 'captura-calificaciones', component: CapturaCalificacionesComponent}, // canActivate: [AuthGuard]},
+  {path: 'captura-calificaciones', component: CapturaCalificacionesComponent, canActivate: [AuthGuard]},
+  {path: 'acredita-procedimientos', component: AcreditaProcedimientosComponent, canActivate: [AuthGuard]},
   {path: 'user', component: UserComponent}
 ];
 
@@ -139,7 +141,8 @@ const appRouter: Routes = [
     UserComponent,
     SignUpComponent,
     SignInComponent,
-    CapturaCalificacionesComponent
+    CapturaCalificacionesComponent,
+    AcreditaProcedimientosComponent
   ],
   imports: [
     BrowserModule,
