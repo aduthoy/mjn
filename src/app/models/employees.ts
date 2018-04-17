@@ -1,5 +1,6 @@
 import {CatAreas} from './cat-areas';
 import {Puestos} from './puestos';
+import {TrainingdatePersonal} from './trainingdate-personal';
 
 export class Employees {
   id: number;
@@ -15,4 +16,7 @@ export class Employees {
   area: CatAreas;
   puesto: Puestos;
   nombre: string;
+  calificacion: number;
+  estatus: number;
+  pivot: TrainingdatePersonal;
 }

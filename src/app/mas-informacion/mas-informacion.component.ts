@@ -17,6 +17,10 @@ export class MasInformacionComponent implements OnInit {
 
   constructor(private svrTrainingDates: TrainingDatesService, private svrlogin: LoginService) {
 
+    const vencido = 99;
+    const porvencer = 80;
+    const ok = 0;
+
     this.generalGrid = <GridOptions> {
       rowSelection: 'single',
       enableColResize: true,
@@ -25,6 +29,19 @@ export class MasInformacionComponent implements OnInit {
     };
 
     this.generalGrid.columnDefs = [
+      {headerName: '', field: 'estatus', width: 20 ,
+        cellClassRules:
+          {
+            'celVencido' : function (params) {
+              return vencido === params.value;
+            },
+            'celPorVencer' : function (params) {
+              return porvencer === params.value;
+            },
+            'celOK' : function (params) {
+              return ok === params.value;
+            }
+          }},
       {headerName: 'Fecha', field: 'initial_date', width: 105},
       {headerName: 'Lugar', field: 'location', width: 250},
       {headerName: 'Duración', field: 'duracionCurso'},
@@ -63,15 +80,15 @@ export class MasInformacionComponent implements OnInit {
       {headerName: 'Area', field: 'nombreArea', width: 130}
     ];
 
-    this.svrTrainingDates.getProximosaVencerGeneralDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getProximosaVencerGeneralDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.generalGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getProximosaVencerEspecificoDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getProximosaVencerEspecificoDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.specificGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getProximosaVencerPDMDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getProximosaVencerPDMDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.pdmGrid.rowData = a;
     });
 
@@ -83,6 +100,10 @@ export class MasInformacionComponent implements OnInit {
     this.generalGrid.rowData = [];
     this.specificGrid.rowData = [];
     this.pdmGrid.rowData = [];
+  }
+
+  generalGridReady(evento: any) {
+    console.log(evento);
   }
 
 }

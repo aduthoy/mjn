@@ -183,3 +183,17 @@
   font-weight: normal;
 }
 
+.celVencido {
+  background-color: red ;
+  color: red;
+}
+
+.celPorVencer {
+  background-color: #ff7200 ;
+  color: #ff7200;
+}
+
+.celOK {
+  background-color: green;
+  color: green;
+}

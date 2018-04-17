@@ -2,12 +2,12 @@
   <form [formGroup]="loginForm" (ngSubmit)="doLogin()" class="mat-background-accent">
     <mat-form-field style="width: 100%;" color="accent">
       <mat-icon matPrefix style="color: #858585; margin-right: 5px;">mail_outline</mat-icon>
-      <input formControlName="loginEmail" type="email" matInput name="userid" id="userid" placeholder="email:" required>
+      <input formControlName="email" type="email" matInput name="userid" id="userid" placeholder="email:" required>
     </mat-form-field>
     <br>
     <mat-form-field style="width: 100%; margin-right: 5px;" color="accent">
       <mat-icon matPrefix style="color: #858585">vpn_key</mat-icon>
-      <input formControlName="loginPassword" type="password" matInput name="pass" id="pass" placeholder="Password:" required>
+      <input formControlName="password" type="password" matInput name="pass" id="pass" placeholder="Password:" required>
     </mat-form-field>
     <br>
     <button type="submit" mat-raised-button="" color="accent" [disabled]="!loginForm.valid">

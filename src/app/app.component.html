@@ -11,19 +11,19 @@
       <span class="spacer"></span>
       <div *ngIf="svrLogin.logedin">
         <div style="margin: 0; padding: 2px; min-width: 400px; text-align: center;">
-          <span style="font-size: small; color: deeppink;">{{svrLogin.username}}</span>
-          <span style="font-size: x-small;">Ultimo Ingreso: 04/04/2018</span>
+          <span style="font-size: small; color: deeppink;">{{svrLogin.currUser.name}}</span>
+          <span style="font-size: x-small;">Ultimo Ingreso: {{svrLogin.currUser.updated_at | date:'medium'}}</span>
         </div>
       </div>
       <div *ngIf="svrLogin.administrador">
         <mat-menu #operacionesMenu="matMenu" yPosition="above" [overlapTrigger]="false">
-          <button mat-menu-item>Operación 1</button>
-          <button mat-menu-item>Operación 1</button>
-          <button mat-menu-item>Operación 1</button>
-          <button mat-menu-item>Operación 1</button>
+          <a mat-menu-item [routerLink]="['/captura-calificaciones']">Actualiza Curos Impartidos</a>
+          <a mat-menu-item [routerLink]="['/dashboard']">Actauliza Procedimientos Acreditados</a>
+          <!--<button mat-menu-item>Operación 1</button>
+          <button mat-menu-item>Operación 1</button>-->
         </mat-menu>
 
-        <button mat-button="" [matMenuTriggerFor]="operacionesMenu" disabled>
+        <button mat-button="" [matMenuTriggerFor]="operacionesMenu" >
           <i class="material-icons">work</i>
           Operación
         </button>
@@ -75,9 +75,8 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="container">
-    <!--<app-user></app-user>-->
     <router-outlet></router-outlet>
-    <!--<app-dashboard></app-dashboard>-->
+    <!--<app-captura-calificaciones></app-captura-calificaciones>-->
   </div>
 </div>
 

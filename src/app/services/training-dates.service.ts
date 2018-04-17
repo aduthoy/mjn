@@ -140,4 +140,9 @@ export class TrainingDatesService {
     return this.http.get('http://localhost:8000/api/dashboard/getCursadosPDMDetalleByUserId/' + id).toPromise();
   }
 
+  public updateStatusEmployeesByTrainingDate(employees: Employees[], curso: number) {
+    return this.http.put('http://localhost:8000/api/trainingdates/updateStatusEmployeesByTrainingDate/' + curso, JSON.stringify(employees),
+      {headers: this.headers}).toPromise();
+  }
+
 }

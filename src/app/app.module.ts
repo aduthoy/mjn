@@ -40,7 +40,7 @@ import {
         } from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CfgCapGeneralComponent } from './cfg-cap-general/cfg-cap-general.component';
 import { FrmCapGeneralComponent } from './cfg-cap-general/frm-cap-general/frm-cap-general.component';
 import { CfgCapEspecificaComponent } from './cfg-cap-especifica/cfg-cap-especifica.component';
@@ -84,6 +84,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import {LoginService} from './services/login.service';
 import {AuthGuard} from './auth/auth.guard';
+import {AuthInterceptor} from './auth/auth.interceptor';
+import { CapturaCalificacionesComponent } from './captura-calificaciones/captura-calificaciones.component';
 
 
 const appRouter: Routes = [
@@ -102,6 +104,7 @@ const appRouter: Routes = [
   {path: 'mas-informacion', component: MasInformacionComponent, canActivate: [AuthGuard]},
   {path: 'mas-informacion-programados', component: MasInformacionProgramadosComponent, canActivate: [AuthGuard]},
   {path: 'mas-informacion-cursados', component: MasInformacionCursadosComponent, canActivate: [AuthGuard]},
+  {path: 'captura-calificaciones', component: CapturaCalificacionesComponent}, // canActivate: [AuthGuard]},
   {path: 'user', component: UserComponent}
 ];
 
@@ -135,7 +138,8 @@ const appRouter: Routes = [
     MasInformacionCursadosComponent,
     UserComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    CapturaCalificacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -191,10 +195,15 @@ const appRouter: Routes = [
   ],
   bootstrap: [AppComponent],
   providers: [
-    AuthGuard,CatPdmService, CatAreasService, CatEstatusService,
+    AuthGuard, CatPdmService, CatAreasService, CatEstatusService,
     CatStatusService, CatProcesosService, CatPropsService,
     CatPropsService, CatCursosGeneralService, CatCursosEspecificosService, CatPuestosService, PersonalService,
     TrainingDatesService, LoginService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi : true
+    },
   ]
 
 })

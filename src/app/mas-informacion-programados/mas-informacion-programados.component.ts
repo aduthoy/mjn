@@ -63,15 +63,15 @@ export class MasInformacionProgramadosComponent implements OnInit {
       {headerName: 'Area', field: 'nombreArea', width: 130}
     ];
 
-    this.svrTrainingDates.getProgramadosGeneralDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getProgramadosGeneralDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.generalGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getProgramadosEspecificoDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getProgramadosEspecificoDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.specificGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getProgramadosPDMDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getProgramadosPDMDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.pdmGrid.rowData = a;
     });
 

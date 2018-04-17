@@ -15,19 +15,19 @@ export class DashboardComponent implements OnInit {
   res_cursados: DashResumen = new DashResumen();
 
   constructor(private svrDash: TrainingDatesService, private svrlogin: LoginService) {
-    this.svrDash.getProximosaVencerByUserId(this.svrlogin.userId).then( (a: DashResumen) => {
+    this.svrDash.getProximosaVencerByUserId(this.svrlogin.currUser.employeeId).then( (a: DashResumen) => {
       this.res_proxavencer = a[0];
       console.log(a);
       console.log('Proximos a vencer ', this.res_proxavencer);
     });
 
-    this.svrDash.getProgramadosByUserId(this.svrlogin.userId).then( (a: DashResumen) => {
+    this.svrDash.getProgramadosByUserId(this.svrlogin.currUser.employeeId).then( (a: DashResumen) => {
       this.res_programados = a[0];
       console.log(a);
       console.log('Proximos a vencer ', this.res_programados);
     });
 
-    this.svrDash.getCursadosByUserId(this.svrlogin.userId).then( (a: DashResumen) => {
+    this.svrDash.getCursadosByUserId(this.svrlogin.currUser.employeeId).then( (a: DashResumen) => {
       this.res_cursados = a[0];
       console.log(a);
       console.log('Proximos a vencer ', this.res_cursados);

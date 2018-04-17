@@ -64,15 +64,15 @@ export class MasInformacionCursadosComponent implements OnInit {
       {headerName: 'Area', field: 'nombreArea', width: 130}
     ];
 
-    this.svrTrainingDates.getCursadosGeneralDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getCursadosGeneralDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.generalGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getCursadosEspecificoDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getCursadosEspecificoDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.specificGrid.rowData = a;
     });
 
-    this.svrTrainingDates.getCursadosPDMDetalleByUserId(this.svrlogin.userId).then( (a: any[]) => {
+    this.svrTrainingDates.getCursadosPDMDetalleByUserId(this.svrlogin.currUser.employeeId).then( (a: any[]) => {
       this.pdmGrid.rowData = a;
     });
 

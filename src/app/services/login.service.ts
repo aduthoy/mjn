@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Users} from '../models/users';
 
 @Injectable()
 export class LoginService {
+
+  headers = new HttpHeaders({'Content-Type': 'application/json'});
+
   logedin: boolean;
   administrador: boolean;
-  username: string;
-  userId: number;
   token: string;
+  currUser: Users;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public doLogin( email: string, password: string) {
-    if ((email === 'aduthoy@gmail.com') && (password === 'coco240492')) {
-      this.username = 'Alberto Duthoy González';
-      this.userId = 1;
-      this.logedin = true;
-      this.administrador = false;
-    } else if ((email === 'gabriela.martinezamparan@rb.com') && (password === 'gmartineza')) {
-      this.username = 'Gabriela Martinez Amparan';
-      this.userId = 9;
-      this.logedin = true;
-      this.administrador = true;
-    } else {
-      this.logedin = false;
-    }
+  public doLogin(credenciales: any) {
+
+    console.log('Credenciales:', credenciales);
+    return this.http.post('http://localhost:8000/api/authenticate', JSON.stringify(credenciales), { headers: this.headers })
+      .toPromise();
+  }
+
+  public getUserInfoByEMail(credenciales: any) {
+    return this.http.post('http://localhost:8000/api/user/getUserInfoByEMail', JSON.stringify(credenciales), { headers: this.headers })
+      .toPromise();
+  }
+
+  public updateUserById(user: Users) {
+    return this.http.put('http://localhost:8000/api/user/updateUserById/' + this.currUser.id, JSON.stringify(this.currUser),
+      { headers: this.headers}).toPromise();
   }
 
   public doLogout() {
