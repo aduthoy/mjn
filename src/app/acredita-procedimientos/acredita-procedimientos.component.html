@@ -17,7 +17,7 @@
                 </mat-select>
               </mat-form-field>
               <mat-form-field style="width: 100%;">
-                <mat-select placeholder="Seleccione un curso" [(ngModel)]="currCurso.id" name="curso" (selectionChange)="getInfoCurso()">
+                <mat-select placeholder="Seleccione un Procedimiento" [(ngModel)]="currCurso.id" name="curso" (selectionChange)="getInfoCurso()">
                   <mat-option *ngFor="let curso of cursos" [value] = "curso.id" style="height: 32px; font-size: 12px; padding: 10px; margin: 0;">
                     {{ curso.tituloPdm}}
                   </mat-option>

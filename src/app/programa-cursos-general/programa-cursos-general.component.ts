@@ -52,6 +52,7 @@ export class ProgramaCursosGeneralComponent implements OnInit {
               private svrPersonal: PersonalService) {
 
     this.currCurso = new CatCapGeneral();
+    // this.svrCurso.getAllActiveGeneralTraining().then( ( a: CatCapGeneral[] ) => {this.cursos = a; });
     this.svrCurso.getAllCursosCapGeneral().then( ( a: CatCapGeneral[] ) => {this.cursos = a; });
     this.svrAreas.getAllCatAreas().then( (a: CatAreas[]) => { this.areas = a; });
 
@@ -117,10 +118,18 @@ export class ProgramaCursosGeneralComponent implements OnInit {
       this.svrCurso.setCurrCursoGeneral(a);
       this.currCurso = this.svrCurso.getCurrCursoGeneral();
       console.log(this.currCurso);
+      if (this.currCurso.estatus_curso) {
+        this.selectedpcg = true;
+      } else {
+        this.selectedpcg = false;
+        this.searchField.disable();
+      }
+      console.log('Curso: ', this.currCurso);
+      console.log('Estatus Curso: ', this.selectedpcg);
       this.svrDates.getAllTrainingDatesByGeneralTraininigId(this.currCurso.id).then( (b: TrainingDates[]) => {
         this.datesGrid.rowData = b;
-        this.selectedpcg = true;
       });
+      this.employesGrid.rowData = [];
     });
   }
 
@@ -156,10 +165,15 @@ export class ProgramaCursosGeneralComponent implements OnInit {
   public onSeletedDatesGridRow(event: any) {
     console.log('Se selecciono una fecha ', event.api.getSelectedRows()[0]);
     this.currTrainingDate = event.api.getSelectedRows()[0];
+    this.searchField.disable();
     this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (a: Employees[]) => {
       this.employesGrid.rowData = a;
       console.log('Info Empleados > ', a);
-      this.searchField.enable();
+      if (this.selectedpcg === true) {
+        this.searchField.enable();
+      } else {
+        this.searchField.disable();
+      }
     });
     this.rowselected = false;
   }

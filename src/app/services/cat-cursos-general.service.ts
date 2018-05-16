@@ -40,4 +40,8 @@ export class CatCursosGeneralService {
   public deleteCursoGenera(curso: CatCapGeneral) {
     return this.http.delete('http://localhost:8000/api/generaltrainings/' + curso.id, {headers: this.headers}).toPromise();
   }
+
+  public getAllActiveGeneralTraining() {
+    return this.http.get('http://localhost:8000/api/generaltrainings/getAllActiveGeneralTrainings').toPromise();
+  }
 }

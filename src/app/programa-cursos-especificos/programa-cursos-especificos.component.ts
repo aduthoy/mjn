@@ -116,12 +116,18 @@ export class ProgramaCursosEspecificosComponent implements OnInit {
     this.svrCurso.getCursoEspecificoById(this.currCurso.id).then( (a: CatCapGeneral) => {
       this.svrCurso.setCurrCursoEspecifio(a);
       this.currCurso = this.svrCurso.getCurrCursoEspecifio();
+      if (this.currCurso.estatus_curso) {
+        this.selectedpce = true;
+      } else {
+        this.selectedpce = false;
+        this.searchField.disable();
+      }
       console.log(this.currCurso);
       this.svrDates.getAllTrainingDatesBySpecificTrainigId(this.currCurso.id).then( (b: TrainingDates[]) => {
         console.log('Fechas de Entrenamiento ', b);
         this.datesGrid.rowData = b;
-        this.selectedpce = true;
       });
+      this.employesGrid.rowData = [];
     });
   }
 
@@ -159,7 +165,11 @@ export class ProgramaCursosEspecificosComponent implements OnInit {
     this.svrDates.getEmployessByTrainingDateId(this.currTrainingDate.id).then( (a: Employees[]) => {
       this.employesGrid.rowData = a;
       console.log('Info Empleados > ', a);
-      this.searchField.enable();
+      if (this.selectedpce) {
+        this.searchField.enable();
+      } else {
+        this.searchField.disable();
+      }
     });
     this.rowselected = false;
   }

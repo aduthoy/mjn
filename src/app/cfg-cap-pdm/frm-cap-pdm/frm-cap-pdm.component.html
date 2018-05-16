@@ -43,9 +43,13 @@
 
             <mat-form-field> <!-- style="width: 350px;">-->
               <mat-select placeholder="Estatus" [(ngModel)]="pdm.fk_estatusPdm" name="estatus">
-                <mat-option *ngFor="let estado of estatus" [value] = "estado.idEstatus">
+                <mat-option value="0">Eliminado</mat-option>
+                <mat-option value="1">Requiere Compeltar</mat-option>
+                <mat-option value="2">Vencido Revisar</mat-option>
+                <mat-option value="3">Vigente</mat-option>
+                <!--<mat-option *ngFor="let estado of estatus" [value] = "estado.idEstatus">
                   {{ estado.nombreEstatus}}
-                </mat-option>
+                </mat-option>-->
               </mat-select>
             </mat-form-field>
           </div>

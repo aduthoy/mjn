@@ -87,6 +87,8 @@ import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth.interceptor';
 import { CapturaCalificacionesComponent } from './captura-calificaciones/captura-calificaciones.component';
 import { AcreditaProcedimientosComponent } from './acredita-procedimientos/acredita-procedimientos.component';
+import { ConsultaCursosComponent } from './consulta-cursos/consulta-cursos.component';
+import { ConsultaPdmsComponent } from './consulta-pdms/consulta-pdms.component';
 
 
 const appRouter: Routes = [
@@ -107,6 +109,8 @@ const appRouter: Routes = [
   {path: 'mas-informacion-cursados', component: MasInformacionCursadosComponent, canActivate: [AuthGuard]},
   {path: 'captura-calificaciones', component: CapturaCalificacionesComponent, canActivate: [AuthGuard]},
   {path: 'acredita-procedimientos', component: AcreditaProcedimientosComponent, canActivate: [AuthGuard]},
+  {path: 'consulta-cursos', component: ConsultaCursosComponent }, //canActivate: [AuthGuard]},
+  {path: 'consulta-pdms', component: ConsultaPdmsComponent }, //canActivate: [AuthGuard]},
   {path: 'user', component: UserComponent}
 ];
 
@@ -142,7 +146,9 @@ const appRouter: Routes = [
     SignUpComponent,
     SignInComponent,
     CapturaCalificacionesComponent,
-    AcreditaProcedimientosComponent
+    AcreditaProcedimientosComponent,
+    ConsultaCursosComponent,
+    ConsultaPdmsComponent
   ],
   imports: [
     BrowserModule,

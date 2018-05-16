@@ -29,15 +29,13 @@
         </button>
 
         <mat-menu #consultasMenu="matMenu" yPosition="above" [overlapTrigger]="false">
-          <button mat-menu-item>Consultas 1</button>
-          <button mat-menu-item>Consultas 1</button>
-          <button mat-menu-item>Consultas 1</button>
-          <button mat-menu-item>Consultas 1</button>
+          <a mat-menu-item [routerLink]="['/consulta-cursos']">Consulta Cursos</a>
+          <a mat-menu-item [routerLink]="['/consulta-pds']">Consulta Procedimientos</a>
         </mat-menu>
 
-        <button mat-button="" [matMenuTriggerFor]="consultasMenu" disabled>
+        <button mat-button="" [matMenuTriggerFor]="consultasMenu">
           <i class="material-icons">folder</i>
-          Consultas y Reportes
+          Consultas
         </button>
 
         <mat-menu #configMenu="matMenu" yPosition="above" [overlapTrigger]="false">

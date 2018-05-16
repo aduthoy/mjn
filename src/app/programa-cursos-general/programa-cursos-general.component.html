@@ -43,7 +43,7 @@
               </tr>
               <tr>
                 <td class="itweb-det-etiquetas itweb-tablerow-style">Estatus:</td>
-                <td class="itweb-det-campos itweb-tablerow-style">{{(currCurso.estatus_curso === 1) ? 'Activo' : 'Inactivo'}}</td>
+                <td class="itweb-det-campos itweb-tablerow-style">{{( currCurso.estatus_curso === 1) ? 'Activo' : 'Inactivo'}}</td>
               </tr>
             </table>
           </td>
@@ -87,7 +87,7 @@
             <p class="it-web-table-container-section-title">Participantes:</p>
             <div class="itweb-tool-bar mat-elevation-z2">
               <mat-form-field style="width: 120px">
-              <mat-select placeholder="Area" name="area" [disabled]="!currTrainingDate.id" [(ngModel)]="selectedArea"
+              <mat-select placeholder="Area" name="area" [disabled]="!currTrainingDate.id || !selectedpcg" [(ngModel)]="selectedArea"
                     (selectionChange)="areaChange()">
                 <mat-option value="0" style="height: 32px; font-size: 12px; padding: 10px; margin: 0;">Todas</mat-option>
                 <mat-option *ngFor="let area of areas" [value]="area.id" style="height: 32px; font-size: 12px; padding: 10px; margin: 0;">
@@ -96,7 +96,7 @@
               </mat-select>
               </mat-form-field>
               <mat-form-field style="width: 120px">
-              <mat-select placeholder="Puesto" name="puesto" [disabled]="!currTrainingDate.id" [(ngModel)]="selectedPuesto"
+              <mat-select placeholder="Puesto" name="puesto" [disabled]="!currTrainingDate.id || !selectedpcg" [(ngModel)]="selectedPuesto"
                     (selectionChange)="puestoChange()">
                 <mat-option value="0" style="height: 32px; font-size: 12px; padding: 10px; margin: 0;">Todos</mat-option>
                 <mat-option *ngFor="let puesto of puestos" [value]="puesto.id" style="height: 32px; font-size: 12px; padding: 10px; margin: 0;">
@@ -118,10 +118,10 @@
               </mat-select>-->
               </mat-form-field>
               <hr>
-              <button type="button" mat-button="" [disabled]="!empleadosReady" (click)="AddEmployee()" color="accent">
+              <button type="button" mat-button="" [disabled]="!empleadosReady || !selectedpcg" (click)="AddEmployee()" color="accent">
                 <i class="material-icons md-18">add_circle_outline</i>Agregar
               </button>
-              <button type="button" mat-button="" [disabled]="!rowselected" (click)="DelEmployee()" color="accent">
+              <button type="button" mat-button="" [disabled]="!rowselected || !selectedpcg" (click)="DelEmployee()" color="accent">
                 <i class="material-icons md-18">delete</i>Eliminar
               </button>
             </div>
